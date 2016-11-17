@@ -185,6 +185,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bill.h" />
     <ClInclude Include="Casino.h" />
     <ClInclude Include="Dice.h" />
     <ClInclude Include="LasVegasMFC.h" />
@@ -197,6 +198,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bill.cpp" />
     <ClCompile Include="Casino.cpp" />
     <ClCompile Include="Dice.cpp" />
     <ClCompile Include="LasVegasMFC.cpp" />
