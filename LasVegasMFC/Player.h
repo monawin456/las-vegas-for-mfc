@@ -4,7 +4,7 @@
 class Player
 {
 public:
-	Player();
+	Player(); //player
 	~Player();
 
 	void GetMoney(CString&);	//ÇöÀç µ·
