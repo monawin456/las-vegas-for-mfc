@@ -7,17 +7,21 @@ public:
 	Player();
 	~Player();
 
-	void GetMoney();	//현재 돈
-	void AddMoney();	//라운드마다 돈 추가
-	void GetDice();		//현재 다이스 상황
+	void GetMoney(CString&);	//현재 돈
+	void AddMoney(int);	//라운드마다 돈 추가
+	void GetDice(CString&);		//현재 다이스 상황
 
 	void RoundDice();	//라운드마다 지급되는 주사위
 	void Rolling();		//모든 주사위 굴리기
-	void GiveCasino(Dice &);  //카지노에 주사위 투자
+	void Selection(int);  //카지노에 주사위 투자
+	void RemoveDice(Dice &);
 
+public:		//특성
+	int num_dice;
 
 private:	//특성
 	Dice dice[8];
 	int money;
+	
 };
 
