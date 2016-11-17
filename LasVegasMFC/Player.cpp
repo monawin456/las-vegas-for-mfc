@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Player.h"
 #include "LasVegasMFCView.h"
-
+#include "Bill.h"
 
 Player::Player()
 {
@@ -17,9 +17,9 @@ void Player::GetMoney(CString & Money)
 	Money.Format(_T("Money : %d"), money);
 }
 
-void Player::AddMoney(int n)
+void Player::AddMoney(Bill bill)
 {
-	money += n;
+	money += bill;
 }
 
 void Player::GetDice(CString & k_dice)
