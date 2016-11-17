@@ -185,19 +185,23 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Dice.h" />
     <ClInclude Include="LasVegasMFC.h" />
     <ClInclude Include="LasVegasMFCDoc.h" />
     <ClInclude Include="LasVegasMFCView.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Dice.cpp" />
     <ClCompile Include="LasVegasMFC.cpp" />
     <ClCompile Include="LasVegasMFCDoc.cpp" />
     <ClCompile Include="LasVegasMFCView.cpp" />
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
