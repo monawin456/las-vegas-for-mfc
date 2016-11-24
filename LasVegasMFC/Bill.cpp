@@ -48,7 +48,7 @@ int BillDeck::getBill()
 {
 	if (top != 0) {
 		top--;
-		return bill[top].getPrice;
+		return bill[top].getPrice();
 	}
 	return -1;
 }
