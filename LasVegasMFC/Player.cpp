@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "LasVegasMFCView.h"
 #include "Bill.h"
+#include "Dice.h"
 
 Player::Player()
 {
@@ -26,17 +27,18 @@ void Player::AddMoney(Bill &bill)
 void Player::GetDice(CString & k_dice)
 {
 	int num1, num2, num3, num4, num5, num6;
+	num1 = num2 = num3 = num4 = num5 = num6 = 0;
 	for (int i = 0; i < num_dice; i++)
 	{
-		if (dice[i].GetDice == 1)
+		if (dice[i].GetDice() == 1)
 			num1++;
-		else if (dice[i].GetDice == 2)
+		else if (dice[i].GetDice() == 2)
 			num2++;
-		else if (dice[i].GetDice == 3)
+		else if (dice[i].GetDice() == 3)
 			num3++;
-		else if (dice[i].GetDice == 4)
+		else if (dice[i].GetDice() == 4)
 			num4++;
-		else if (dice[i].GetDice == 5)
+		else if (dice[i].GetDice() == 5)
 			num5++;
 		else
 			num6++;
@@ -48,8 +50,7 @@ void Player::GetDice(CString & k_dice)
 void Player::RoundDice()
 {
 	num_dice = 8;
-	for (int i = 0; i < num_dice; i++)
-		dice[i] = Dice();
+	dice = new Dice[8]();
 }
 
 void Player::Rolling()

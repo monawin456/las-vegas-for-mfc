@@ -3,7 +3,7 @@
 //
 
 #pragma once
-
+class CLasVegasMFCDoc;
 
 class CLasVegasMFCView : public CFormView
 {

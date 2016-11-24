@@ -1,7 +1,8 @@
 #pragma once
 
 #include "stdafx.h"
-#include "Dice.h"
+class Dice;
+class Bill;
 
 class Player
 {
@@ -22,7 +23,7 @@ public:		//특성
 	int num_dice;
 
 private:	//특성
-	Dice dice[8];
+	Dice* dice;
 	int money;
 	
 };
