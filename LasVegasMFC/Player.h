@@ -1,5 +1,6 @@
 #pragma once
-#include "Dice.h"
+
+class Dice;
 
 class Player
 {
