@@ -28,7 +28,7 @@ BillDeck::BillDeck()
 
 BillDeck::~BillDeck()
 {
-	delete bill;
+	delete[]bill;
 }
 
 void BillDeck::resetDeck()
