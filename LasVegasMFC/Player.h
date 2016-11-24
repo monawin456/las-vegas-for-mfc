@@ -11,7 +11,7 @@ public:
 	~Player();
 
 	void GetMoney(CString&);	//현재 돈
-	void AddMoney(Bill&);	//라운드마다 돈 추가
+	void AddMoney(Bill*);	//라운드마다 돈 추가
 	void GetDice(CString&);		//현재 다이스 상황
 
 	void RoundDice();	//라운드마다 지급되는 주사위
