@@ -21,7 +21,7 @@ public:		//특성
 	int num_dice;
 
 private:	//특성
-	Dice dice[8];
+	Dice* dice;
 	int money;
 	
 };

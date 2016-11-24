@@ -11,6 +11,7 @@
 
 #include "LasVegasMFCDoc.h"
 #include "LasVegasMFCView.h"
+#include "Player.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -81,3 +82,14 @@ CLasVegasMFCDoc* CLasVegasMFCView::GetDocument() const // non-debug version is i
 
 
 // CLasVegasMFCView message handlers
+
+
+void CLasVegasMFCView::OnDraw(CDC* pDC)
+{
+	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
+	Player player1;
+	CString str;
+	player1.GetMoney(str);
+	
+	pDC -> TextOut(10, 10, str);
+}
