@@ -1,7 +1,7 @@
 #pragma once
-#include "Dice.h"
-#include "stdafx.h"
 
+#include "stdafx.h"
+#include "Dice.h"
 
 class Player
 {

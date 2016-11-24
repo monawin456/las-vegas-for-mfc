@@ -5,6 +5,7 @@
 
 Player::Player()
 {
+	money = 10000;
 }
 
 
@@ -17,9 +18,9 @@ void Player::GetMoney(CString & Money)
 	Money.Format(_T("Money : %d"), money);
 }
 
-void Player::AddMoney(Bill bill)
+void Player::AddMoney(Bill &bill)
 {
-	money += bill;
+	
 }
 
 void Player::GetDice(CString & k_dice)
