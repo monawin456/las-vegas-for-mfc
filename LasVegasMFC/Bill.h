@@ -13,11 +13,11 @@ public:
 
 class BillDeck {
 private:
-	Bill *bill;
+	Bill **bill;
 	int top;
 public:
 	BillDeck();
 	~BillDeck();
 	void resetDeck();
-	int getBill();
+	Bill *getBill();
 };

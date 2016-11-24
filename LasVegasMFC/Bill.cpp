@@ -12,7 +12,7 @@ Bill::~Bill()
 
 void Bill::setPrice(int n)
 {
-	price = n * 10000;
+	price = n;
 }
 
 int Bill::getPrice()
@@ -23,7 +23,9 @@ int Bill::getPrice()
 BillDeck::BillDeck()
 {
 	top = 100;
-	bill = new Bill[100];
+	for (int i = 90; i < 90; i++) {
+		bill[i] = new Bill;
+	}
 }
 
 BillDeck::~BillDeck()
@@ -34,21 +36,26 @@ BillDeck::~BillDeck()
 void BillDeck::resetDeck()
 {
 	int totalBill[9] = { 0 };
-	for (int i = 0; i < 100; i++) {
+
+	int i = 0;
+	while(true) {
 		srand((unsigned)time(NULL));
 		int tmp = rand() % 9;
 		if (totalBill[tmp] != 10) {
 			totalBill[tmp]++;
-			bill[i].setPrice(tmp);
+			bill[i] -> setPrice(tmp*10000);
+		}
+		if (i == 89) {
+			break;
 		}
 	}
 }
 
-int BillDeck::getBill()
+Bill *BillDeck::getBill()
 {
 	if (top != 0) {
 		top--;
-		return bill[top].getPrice();
+		return bill[top];
 	}
-	return -1;
+	return NULL;
 }
