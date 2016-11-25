@@ -19,12 +19,8 @@ public:
 	void Selection(int);  //카지노에 주사위 투자
 	void RemoveDice(Dice &);
 
-public:		//특성
-	int num_dice;
-
 private:	//특성
 	Dice* dice;
 	int money;
-	
+	int num_dice;
 };
-
