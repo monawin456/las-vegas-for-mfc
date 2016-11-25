@@ -56,6 +56,8 @@ void CLasVegasMFCView::OnInitialUpdate()
 	GetParentFrame()->RecalcLayout();
 	ResizeParentToFit();
 
+	srand((unsigned)time(NULL));
+
 }
 
 

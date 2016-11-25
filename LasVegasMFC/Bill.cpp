@@ -1,31 +1,10 @@
 #include "stdafx.h"
 #include "Bill.h"
 
-Bill::Bill()
-{
-	price = 0;
-}
-
-Bill::~Bill()
-{
-}
-
-void Bill::setPrice(int n)
-{
-	price = n;
-}
-
-int Bill::getPrice()
-{
-	return price;
-}
-
 BillDeck::BillDeck()
 {
-	top = 100;
-	for (int i = 90; i < 90; i++) {
-		bill[i] = new Bill;
-	}
+	top = 90;
+	bill = new int[90];
 }
 
 BillDeck::~BillDeck()
@@ -35,27 +14,29 @@ BillDeck::~BillDeck()
 
 void BillDeck::resetDeck()
 {
+	top = 90;
+
 	int totalBill[9] = { 0 };
 
 	int i = 0;
-	while(true) {
-		srand((unsigned)time(NULL));
+	while (true) {
 		int tmp = rand() % 9;
 		if (totalBill[tmp] != 10) {
-			totalBill[tmp]++;
-			bill[i] -> setPrice(tmp*10000);
+			totalBill[tmp] = totalBill[tmp] + 1;
+			bill[i] = (tmp + 1) * 10000;
+			i++;
 		}
-		if (i == 89) {
+		if (i == 90) {
 			break;
 		}
 	}
 }
 
-Bill *BillDeck::getBill()
+int BillDeck::getBill()
 {
 	if (top != 0) {
 		top--;
 		return bill[top];
 	}
-	return NULL;
+	return -1;
 }
