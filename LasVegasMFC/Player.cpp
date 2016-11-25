@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Player.h"
-#include "LasVegasMFCView.h"
 #include "Bill.h"
 #include "Dice.h"
 #include "Casino.h"
@@ -29,7 +28,12 @@ void Player::AddMoney(Bill * bill)
 
 void Player::GetDice(CString & k_dice)
 {
-	num1 = num2 = num3 = num4 = num5 = num6 = 0;
+	int num1 = 0;
+	int num2 = 0;
+	int num3 = 0;
+	int num4 = 0;
+	int num5 = 0;
+	int num6 = 0;
 
 	for (int i = 0; i < num_dice; i++)
 	{
@@ -54,8 +58,7 @@ void Player::RoundDice()
 {
 	num_dice = 8;
 	delete dice;
-	Dice* tmp = new Dice[8]();
-	dice = tmp;
+	dice = new Dice[8]();
 }
 
 void Player::Rolling()
@@ -68,17 +71,7 @@ void Player::Selection(int n, Casino & cas)
 {
 	for (int i = 0; i < num_dice; i++)
 	{
-		if (dice[i].GetDice() == 1)
-			GiveDice(i, cas);
-		else if (dice[i].GetDice() == 2)
-			GiveDice(i, cas);
-		else if (dice[i].GetDice() == 3)
-			GiveDice(i, cas);
-		else if (dice[i].GetDice() == 4)
-			GiveDice(i, cas);
-		else if (dice[i].GetDice() == 5)
-			GiveDice(i, cas);
-		else if (dice[i].GetDice() == 6)
+		if (dice[i].GetDice() == n)
 			GiveDice(i, cas);
 	}
 }

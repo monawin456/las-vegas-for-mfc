@@ -6,9 +6,10 @@ class Dice;
 class Casino
 {
 private:
-	int id;
-
 	Bill *bill;
+	int billNum;
+
+	int diceNum;
 
 	Dice *player1Dice;
 	int player1DiceNum;
@@ -24,7 +25,7 @@ private:
 public:
 	Casino();
 	~Casino();
-	void setCasino(int _id, int playerNum, int _bill = 0);
-	void setBill(Bill _bill);
+	void resetCasino();
+	void addBill(Bill _bill);
 	void addDice(int player, Dice dice);
 };

@@ -9,6 +9,7 @@ public:
 
 	void RollDice();
 	int GetDice();
+	void setDice(int n);
 
 public:
 

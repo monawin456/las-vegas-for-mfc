@@ -25,6 +25,5 @@ private:	//Æ¯¼º
 	int id;
 	int money;
 	int num_dice;
-	int num1, num2, num3, num4, num5, num6;
 
 };

@@ -21,3 +21,8 @@ int Dice::GetDice()
 {
 	return num;
 }
+
+void Dice::setDice(int n)
+{
+	num = n;
+}
