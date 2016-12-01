@@ -4,7 +4,7 @@
 
 Dice::Dice()
 {
-	num = 0;
+	num = -1;
 }
 
 
@@ -25,4 +25,11 @@ int Dice::GetDice()
 void Dice::setDice(int n)
 {
 	num = n;
+}
+
+Dice & Dice::operator=(Dice & ref)
+{
+	// TODO: 여기에 반환 구문을 삽입합니다.
+	num = ref.GetDice();
+	return *this;
 }

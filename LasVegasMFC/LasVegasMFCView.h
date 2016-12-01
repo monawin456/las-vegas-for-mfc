@@ -43,6 +43,7 @@ protected:
 // Generated message map functions
 protected:
 	DECLARE_MESSAGE_MAP()
+	virtual void OnDraw(CDC* /*pDC*/);
 };
 
 #ifndef _DEBUG  // debug version in LasVegasMFCView.cpp

@@ -10,6 +10,8 @@ public:
 	void RollDice();
 	int GetDice();
 	void setDice(int n);
+	Dice& operator=(Dice& ref);
+
 
 public:
 

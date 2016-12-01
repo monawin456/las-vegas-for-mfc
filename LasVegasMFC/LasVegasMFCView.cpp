@@ -11,6 +11,12 @@
 
 #include "LasVegasMFCDoc.h"
 #include "LasVegasMFCView.h"
+#include "Player.h"
+#include "Casino.h"
+#include "Bill.h"
+#include "Dice.h"
+
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -83,3 +89,35 @@ CLasVegasMFCDoc* CLasVegasMFCView::GetDocument() const // non-debug version is i
 
 
 // CLasVegasMFCView message handlers
+
+
+void CLasVegasMFCView::OnDraw(CDC* pDC)
+{
+	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
+	Player player1(1);
+	Casino casino1;
+	BillDeck billdeck;
+	billdeck.resetDeck();
+	casino1.addBill(billdeck.getBill());
+	
+	player1.Rolling();
+	CString str;
+	player1.GetDice(str);
+
+	pDC->TextOut(10, 10, str);
+
+	player1.Selection(4, casino1);
+	player1.GetDice(str);
+
+	pDC->TextOut(10, 25, str);
+
+	player1.Rolling();
+	player1.GetDice(str);
+	pDC->TextOut(10, 50, str);
+
+	player1.Selection(3, casino1);
+	player1.GetDice(str);
+
+	pDC->TextOut(10, 75, str);
+
+}

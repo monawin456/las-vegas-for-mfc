@@ -18,7 +18,7 @@ public:
 	void RoundDice();	//라운드마다 지급되는 주사위
 	void Rolling();		//모든 주사위 굴리기
 	void Selection(int, Casino&);  //카지노에 주사위 투자
-	void GiveDice(int, Casino&);
+	
 
 private:	//특성
 	Dice* dice;
