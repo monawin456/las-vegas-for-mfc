@@ -99,25 +99,20 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 	BillDeck billdeck;
 	billdeck.resetDeck();
 	casino1.addBill(billdeck.getBill());
-	
+
 	player1.Rolling();
+
 	CString str;
 	player1.GetDice(str);
-
 	pDC->TextOut(10, 10, str);
-
 	player1.Selection(4, casino1);
 	player1.GetDice(str);
+	pDC->TextOut(10, 100, str);
 
-	pDC->TextOut(10, 25, str);
+	CString str1;
+	CString str2;
+	casino1.printInfo(str1, str2);
 
-	player1.Rolling();
-	player1.GetDice(str);
-	pDC->TextOut(10, 50, str);
-
-	player1.Selection(3, casino1);
-	player1.GetDice(str);
-
-	pDC->TextOut(10, 75, str);
-
+	pDC->TextOut(10, 200, str1);
+	pDC->TextOut(10, 300, str2);
 }

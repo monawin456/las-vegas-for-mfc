@@ -8,6 +8,7 @@ class Casino
 private:
 	Bill *bill;
 	int billNum;
+	int totalPrice;
 
 	int diceNum;
 
@@ -22,10 +23,16 @@ private:
 	Dice *player5Dice;
 	int player5DiceNum;
 
+private:
+	void setTotalPrice();
+
 public:
 	Casino();
 	~Casino();
 	void resetCasino();
 	void addBill(Bill _bill);
 	void addDice(int player, Dice dice);
+	int getTotalPrice();
+
+	void printInfo(CString &strTotalPrice, CString &strDiceNum);
 };

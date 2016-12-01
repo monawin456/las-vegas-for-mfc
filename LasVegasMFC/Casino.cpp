@@ -3,10 +3,18 @@
 #include "Bill.h"
 #include "Dice.h"
 
+void Casino::setTotalPrice()
+{
+	for (int i = 0; i < 5; i++) {
+		totalPrice = totalPrice + bill[i].getPrice();
+	}
+}
+
 Casino::Casino()
 {
 	bill = new Bill[5];
 	billNum = 0;
+	totalPrice = 0;
 
 	diceNum = 13;
 
@@ -45,6 +53,7 @@ void Casino::resetCasino()
 
 	bill = new Bill[5];
 	billNum = 0;
+	totalPrice = 0;
 
 	player1Dice = new Dice[diceNum];
 	player1DiceNum = 0;
@@ -86,4 +95,16 @@ void Casino::addDice(int player, Dice dice)
 		player5Dice[player5DiceNum].setDice(dice.GetDice());
 		player5DiceNum++;
 	}
+}
+
+int Casino::getTotalPrice()
+{
+	setTotalPrice();
+	return totalPrice;
+}
+
+void Casino::printInfo(CString &strTotalPrice, CString &strDiceNum)
+{
+	strTotalPrice.Format(_T("Total Price: %d"), getTotalPrice());
+	strDiceNum.Format(_T("player 1: %d --- player 2: %d --- player 3: %d --- player 4: %d --- player 5: %d"), player1DiceNum, player2DiceNum, player3DiceNum, player4DiceNum, player5DiceNum);
 }
