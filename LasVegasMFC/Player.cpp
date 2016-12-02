@@ -80,3 +80,9 @@ void Player::Selection(int n, Casino & cas)
 		}
 }
 
+int Player::GetDice(int i)
+{
+	return dice[i].GetDice();
+}
+
+

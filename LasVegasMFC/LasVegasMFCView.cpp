@@ -15,7 +15,7 @@
 #include "Casino.h"
 #include "Bill.h"
 #include "Dice.h"
-
+#include "DiceDlg.h"
 
 
 #ifdef _DEBUG
@@ -115,4 +115,9 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 
 	pDC->TextOut(10, 200, str1);
 	pDC->TextOut(10, 300, str2);
+	CString name1(_T("х╡а╓еб"));
+	CDiceDlg dlg;
+	dlg.name = name1;
+	dlg.DoModal();
+	
 }

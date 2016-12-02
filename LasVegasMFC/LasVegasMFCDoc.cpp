@@ -10,7 +10,7 @@
 #endif
 
 #include "LasVegasMFCDoc.h"
-
+#include "Player.h"
 #include <propkey.h>
 
 #ifdef _DEBUG

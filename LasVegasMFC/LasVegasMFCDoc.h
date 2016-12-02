@@ -4,7 +4,7 @@
 
 
 #pragma once
-
+class Player;
 
 class CLasVegasMFCDoc : public CDocument
 {
@@ -14,7 +14,11 @@ protected: // create from serialization only
 
 // Attributes
 public:
-
+	Player* player1;
+	Player* player2;
+	Player* player3;
+	Player* player4;
+	Player* player5;
 // Operations
 public:
 

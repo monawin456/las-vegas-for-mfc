@@ -17,7 +17,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Korean (Korea) resources
+// 한국어(대한민국) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
 LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
@@ -60,12 +60,72 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-#endif    // Korean (Korea) resources
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DICEDLG DIALOGEX 0, 0, 333, 178
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "1",IDC_BUTTON1,6,138,50,14
+    PUSHBUTTON      "2",IDC_BUTTON2,60,138,50,14
+    PUSHBUTTON      "3",IDC_BUTTON3,114,138,50,14
+    PUSHBUTTON      "4",IDC_BUTTON4,168,138,50,14
+    PUSHBUTTON      "5",IDC_BUTTON5,222,138,50,14
+    PUSHBUTTON      "6",IDC_BUTTON6,276,138,50,14
+    LTEXT           "",IDC_STR,96,0,132,18
+    LTEXT           "",IDC_STR2,96,120,132,18
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,36,24,48,42
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,108,24,48,42
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,186,24,48,42
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,258,24,48,42
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,36,72,48,42
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,108,72,48,42
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,186,72,48,42
+    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,258,72,48,42
+    PUSHBUTTON      "Rolling",IDC_BUTTON7,138,156,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DICEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 326
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 171
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_DICEDLG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // 한국어(대한민국) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (United States) resources
+// 영어(미국) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
@@ -387,7 +447,7 @@ BEGIN
     AFX_IDS_SCTASKLIST      "Activate Task List"
 END
 
-#endif    // English (United States) resources
+#endif    // 영어(미국) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
