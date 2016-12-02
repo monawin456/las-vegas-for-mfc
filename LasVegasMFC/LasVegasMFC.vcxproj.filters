@@ -107,5 +107,182 @@
     <Image Include="res\Toolbar.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="res\LVRes\black_dice_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\black_dice_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\black_dice_3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\black_dice_4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\black_dice_5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\black_dice_6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\black_dice_q.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\blue_dice_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\blue_dice_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\blue_dice_3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\blue_dice_4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\blue_dice_5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\blue_dice_6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\blue_dice_q.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\casino_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\casino_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\casino_3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\casino_4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\casino_5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\casino_6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\dollar_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\dollar_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\dollar_3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\dollar_4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\dollar_5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\dollar_6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\dollar_7.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\dollar_8.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\dollar_9.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\green_dice_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\green_dice_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\green_dice_3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\green_dice_4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\green_dice_5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\green_dice_6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\green_dice_q.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\red_dice_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\red_dice_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\red_dice_3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\red_dice_4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\red_dice_5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\red_dice_6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\red_dice_q.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\white_dice_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\white_dice_1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\white_dice_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\white_dice_3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\white_dice_4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\white_dice_5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\white_dice_6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\yellow_dice_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\yellow_dice_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\yellow_dice_3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\yellow_dice_4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\yellow_dice_5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\yellow_dice_6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\yellow_dice_q.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\..\..\Desktop\MFC 그림\WHITE_DICE_Q.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVRes\WHITE_DICE_Q.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
