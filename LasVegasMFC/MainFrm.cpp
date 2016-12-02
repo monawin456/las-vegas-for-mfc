@@ -71,6 +71,9 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 	if( !CFrameWnd::PreCreateWindow(cs) )
 		return FALSE;
 	// TODO: Modify the Window class or styles here by modifying
+	cs.style = cs.style & (~(WS_THICKFRAME | WS_MAXIMIZEBOX));
+	cs.cx = 1280;
+	cs.cy = 720;
 	//  the CREATESTRUCT cs
 
 	return TRUE;

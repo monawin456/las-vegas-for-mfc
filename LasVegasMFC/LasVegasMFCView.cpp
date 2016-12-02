@@ -60,7 +60,7 @@ void CLasVegasMFCView::OnInitialUpdate()
 {
 	CFormView::OnInitialUpdate();
 	GetParentFrame()->RecalcLayout();
-	ResizeParentToFit();
+	//ResizeParentToFit();
 
 	srand((unsigned)time(NULL));
 
