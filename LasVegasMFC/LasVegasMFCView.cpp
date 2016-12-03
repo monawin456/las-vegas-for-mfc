@@ -94,6 +94,99 @@ CLasVegasMFCDoc* CLasVegasMFCView::GetDocument() const // non-debug version is i
 void CLasVegasMFCView::OnDraw(CDC* pDC)
 {
 	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
+	CLasVegasMFCDoc *pDoc = (CLasVegasMFCDoc *)GetDocument();
+
+	for (int i = 0; i < 3; i++) {
+		pDoc->casino1->resetCasino();
+		pDoc->casino2->resetCasino();
+		pDoc->casino3->resetCasino();
+		pDoc->casino4->resetCasino();
+		pDoc->casino5->resetCasino();
+		pDoc->casino6->resetCasino();
+
+		pDoc->billDeck->resetDeck();
+
+		while (TRUE) {
+			pDoc->casino1->addBill(pDoc->billDeck->getBill());
+			if (pDoc->casino1->getTotalPrice() > 50000) {
+				break;
+			}
+		}
+		while (TRUE) {
+			pDoc->casino2->addBill(pDoc->billDeck->getBill());
+			if (pDoc->casino2->getTotalPrice() > 50000) {
+				break;
+			}
+		}
+		while (TRUE) {
+			pDoc->casino3->addBill(pDoc->billDeck->getBill());
+			if (pDoc->casino3->getTotalPrice() > 50000) {
+				break;
+			}
+		}
+		while (TRUE) {
+			pDoc->casino4->addBill(pDoc->billDeck->getBill());
+			if (pDoc->casino4->getTotalPrice() > 50000) {
+				break;
+			}
+		}
+		while (TRUE) {
+			pDoc->casino5->addBill(pDoc->billDeck->getBill());
+			if (pDoc->casino5->getTotalPrice() > 50000) {
+				break;
+			}
+		}
+		while (TRUE) {
+			pDoc->casino6->addBill(pDoc->billDeck->getBill());
+			if (pDoc->casino6->getTotalPrice() > 50000) {
+				break;
+			}
+		}
+
+		while (pDoc->player1->diceEmpty() || pDoc->player2->diceEmpty() || pDoc->player3->diceEmpty() || pDoc->player4->diceEmpty() || pDoc->player5->diceEmpty()) {
+			if (pDoc->player1->diceEmpty()) {
+				CDiceDlg dlg1;
+				dlg1.name = pDoc->player1->name;
+				dlg1.pDoc = pDoc;
+				dlg1.id = 1;
+				dlg1.DoModal();
+			}
+
+			if (pDoc->player2->diceEmpty()) {
+				CDiceDlg dlg2;
+				dlg2.name = pDoc->player2->name;
+				dlg2.pDoc = pDoc;
+				dlg2.id = 2;
+				dlg2.DoModal();
+			}
+
+			if (pDoc->player3->diceEmpty()) {
+				CDiceDlg dlg3;
+				dlg3.name = pDoc->player3->name;
+				dlg3.pDoc = pDoc;
+				dlg3.id = 3;
+				dlg3.DoModal();
+			}
+
+			if (pDoc->player4->diceEmpty()) {
+				CDiceDlg dlg4;
+				dlg4.name = pDoc->player4->name;
+				dlg4.pDoc = pDoc;
+				dlg4.id = 4;
+				dlg4.DoModal();
+			}
+
+			if (pDoc->player5->diceEmpty()) {
+				CDiceDlg dlg5;
+				dlg5.name = pDoc->player5->name;
+				dlg5.pDoc = pDoc;
+				dlg5.id = 5;
+				dlg5.DoModal();
+			}
+		}
+	}
+
+	/*
 	Player player1(1);
 	Casino casino1;
 	BillDeck billdeck;
@@ -105,7 +198,7 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 	CString str;
 	player1.GetDice(str);
 	pDC->TextOut(10, 10, str);
-	player1.Selection(4, casino1);
+	player1.Selection(4, &casino1);
 	player1.GetDice(str);
 	pDC->TextOut(10, 100, str);
 
@@ -119,5 +212,5 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 	CDiceDlg dlg;
 	dlg.name = name1;
 	dlg.DoModal();
-	
+	*/
 }

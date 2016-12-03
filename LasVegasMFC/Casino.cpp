@@ -21,13 +21,13 @@ Casino::Casino()
 	player1Dice = new Dice[diceNum];
 	player1DiceNum = 0;
 	player2Dice = new Dice[diceNum];
-	player1DiceNum = 0;
+	player2DiceNum = 0;
 	player3Dice = new Dice[diceNum];
-	player1DiceNum = 0;
+	player3DiceNum = 0;
 	player4Dice = new Dice[diceNum];
-	player1DiceNum = 0;
+	player4DiceNum = 0;
 	player5Dice = new Dice[diceNum];
-	player1DiceNum = 0;
+	player5DiceNum = 0;
 }
 
 Casino::~Casino()
@@ -58,13 +58,13 @@ void Casino::resetCasino()
 	player1Dice = new Dice[diceNum];
 	player1DiceNum = 0;
 	player2Dice = new Dice[diceNum];
-	player1DiceNum = 0;
+	player2DiceNum = 0;
 	player3Dice = new Dice[diceNum];
-	player1DiceNum = 0;
+	player3DiceNum = 0;
 	player4Dice = new Dice[diceNum];
-	player1DiceNum = 0;
+	player4DiceNum = 0;
 	player5Dice = new Dice[diceNum];
-	player1DiceNum = 0;
+	player5DiceNum = 0;
 }
 
 void Casino::addBill(Bill _bill)

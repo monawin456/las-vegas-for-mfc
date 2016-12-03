@@ -5,6 +5,10 @@
 #pragma once
 class CLasVegasMFCDoc;
 
+class Player;
+class Casino;
+class BillDeck;
+
 class CLasVegasMFCView : public CFormView
 {
 protected: // create from serialization only

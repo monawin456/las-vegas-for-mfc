@@ -70,12 +70,12 @@ void Player::Rolling()
 		dice[i].RollDice();
 }
 
-void Player::Selection(int n, Casino & cas)
+void Player::Selection(int n, Casino *cas)
 {
 	for (int i = 0; i < num_dice; i++)
 		if (dice[i].GetDice() == n)
 		{
-			cas.addDice(id, dice[i]);
+			cas->addDice(id, dice[i]);
 			dice[i].setDice(0);
 		}
 }
@@ -85,4 +85,14 @@ int Player::GetDice(int i)
 	return dice[i].GetDice();
 }
 
-
+bool Player::diceEmpty()
+{
+	bool result = FALSE;
+	for (int i = 0; i < num_dice; i++) {
+		if (dice[i].GetDice() != 0) {
+			result = TRUE;
+			break;
+		}
+	}
+	return result;
+}

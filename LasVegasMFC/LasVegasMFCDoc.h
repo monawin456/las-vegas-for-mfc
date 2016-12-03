@@ -5,6 +5,8 @@
 
 #pragma once
 class Player;
+class Casino;
+class BillDeck;
 
 class CLasVegasMFCDoc : public CDocument
 {
@@ -19,6 +21,17 @@ public:
 	Player* player3;
 	Player* player4;
 	Player* player5;
+
+	Casino *casino1;
+	Casino *casino2;
+	Casino *casino3;
+	Casino *casino4;
+	Casino *casino5;
+	Casino *casino6;
+
+	BillDeck *billDeck;
+
+	CRect playerRect[4];
 // Operations
 public:
 

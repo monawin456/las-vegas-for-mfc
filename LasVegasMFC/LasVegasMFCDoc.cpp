@@ -11,6 +11,9 @@
 
 #include "LasVegasMFCDoc.h"
 #include "Player.h"
+#include "Casino.h"
+#include "Bill.h"
+
 #include <propkey.h>
 
 #ifdef _DEBUG
@@ -43,6 +46,26 @@ BOOL CLasVegasMFCDoc::OnNewDocument()
 		return FALSE;
 
 	// TODO: add reinitialization code here
+	player1 = new Player(1);
+	player2 = new Player(2);
+	player3 = new Player(3);
+	player4 = new Player(4);
+	player5 = new Player(5);
+
+	casino1 = new Casino();
+	casino2 = new Casino();
+	casino3 = new Casino();
+	casino4 = new Casino();
+	casino5 = new Casino();
+	casino6 = new Casino();
+
+	billDeck = new BillDeck();
+
+	player1->name = _T("Player1");
+	player2->name = _T("Player2");
+	player3->name = _T("Player3");
+	player4->name = _T("Player4");
+	player5->name = _T("Player5");
 	// (SDI documents will reuse this document)
 
 	return TRUE;
