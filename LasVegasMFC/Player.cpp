@@ -30,12 +30,12 @@ void Player::AddMoney(Bill * bill)
 
 void Player::GetDice(CString & k_dice)
 {
-	int num1 = 0;
-	int num2 = 0;
-	int num3 = 0;
-	int num4 = 0;
-	int num5 = 0;
-	int num6 = 0;
+	num1 = 0;
+	num2 = 0;
+	num3 = 0;
+	num4 = 0;
+	num5 = 0;
+	num6 = 0;
 
 	for (int i = 0; i < num_dice; i++)
 	{

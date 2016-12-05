@@ -17,7 +17,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Korean (Korea) resources
+// 한국어(대한민국) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
 LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
@@ -80,14 +80,14 @@ BEGIN
     PUSHBUTTON      "6",IDC_BUTTON6,276,138,50,14
     LTEXT           "",IDC_STR,96,0,132,18
     LTEXT           "",IDC_STR2,96,120,132,18
-    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,36,24,48,42
-    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,108,24,48,42
-    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,186,24,48,42
-    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,258,24,48,42
-    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,36,72,48,42
-    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,108,72,48,42
-    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,186,72,48,42
-    CONTROL         "",IDC_STATIC,"Static",SS_BLACKFRAME,258,72,48,42
+    CONTROL         "",IDC_PIC1,"Static",SS_BLACKFRAME,36,24,48,42
+    CONTROL         "",IDC_PIC2,"Static",SS_BLACKFRAME,108,24,48,42
+    CONTROL         "",IDC_PIC3,"Static",SS_BLACKFRAME,186,24,48,42
+    CONTROL         "",IDC_PIC4,"Static",SS_BLACKFRAME,258,24,48,42
+    CONTROL         "",IDC_PIC5,"Static",SS_BLACKFRAME,36,72,48,42
+    CONTROL         "",IDC_PIC6,"Static",SS_BLACKFRAME,108,72,48,42
+    CONTROL         "",IDC_PIC7,"Static",SS_BLACKFRAME,186,72,48,42
+    CONTROL         "",IDC_PIC8,"Static",SS_BLACKFRAME,258,72,48,42
 END
 
 
@@ -248,12 +248,12 @@ ID_WHITE_DICE_Q         BITMAP                  "res\\LVRes\\WHITE_DICE_Q.bmp"
 
 IDB_PNG1                PNG                     "res\\LVRes\\white_dice_1.png"
 
-#endif    // Korean (Korea) resources
+#endif    // 한국어(대한민국) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (United States) resources
+// 영어(미국) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
@@ -575,7 +575,7 @@ BEGIN
     AFX_IDS_SCTASKLIST      "Activate Task List"
 END
 
-#endif    // English (United States) resources
+#endif    // 영어(미국) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

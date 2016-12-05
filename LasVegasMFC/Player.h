@@ -25,9 +25,12 @@ public:
 	CString name;
 	
 
+	int num1, num2, num3, num4, num5, num6;
+
 private:	//Æ¯¼º
 	Dice* dice;
 	int id;
 	int money;
 	int num_dice;
+	
 };
