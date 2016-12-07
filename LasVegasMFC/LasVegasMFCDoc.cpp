@@ -66,6 +66,54 @@ BOOL CLasVegasMFCDoc::OnNewDocument()
 	player3->name = _T("Player3");
 	player4->name = _T("Player4");
 	player5->name = _T("Player5");
+
+	round = -1;
+
+	casino1->resetCasino();
+	casino2->resetCasino();
+	casino3->resetCasino();
+	casino4->resetCasino();
+	casino5->resetCasino();
+	casino6->resetCasino();
+
+	billDeck->resetDeck();
+
+	while (TRUE) {
+		casino1->addBill(billDeck->getBill());
+		if (casino1->getTotalPrice() > 50000) {
+			break;
+		}
+	}
+	while (TRUE) {
+		casino2->addBill(billDeck->getBill());
+		if (casino2->getTotalPrice() > 50000) {
+			break;
+		}
+	}
+	while (TRUE) {
+		casino3->addBill(billDeck->getBill());
+		if (casino3->getTotalPrice() > 50000) {
+			break;
+		}
+	}
+	while (TRUE) {
+		casino4->addBill(billDeck->getBill());
+		if (casino4->getTotalPrice() > 50000) {
+			break;
+		}
+	}
+	while (TRUE) {
+		casino5->addBill(billDeck->getBill());
+		if (casino5->getTotalPrice() > 50000) {
+			break;
+		}
+	}
+	while (TRUE) {
+		casino6->addBill(billDeck->getBill());
+		if (casino6->getTotalPrice() > 50000) {
+			break;
+		}
+	}
 	// (SDI documents will reuse this document)
 
 	return TRUE;

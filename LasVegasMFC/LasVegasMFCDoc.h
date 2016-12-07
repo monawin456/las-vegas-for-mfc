@@ -31,7 +31,8 @@ public:
 
 	BillDeck *billDeck;
 
-	CRect playerRect[4];
+	int round;
+
 // Operations
 public:
 

@@ -23,6 +23,7 @@ public:
 // Attributes
 public:
 	CLasVegasMFCDoc* GetDocument() const;
+	CRgn playerRgn[4];
 
 // Operations
 public:
