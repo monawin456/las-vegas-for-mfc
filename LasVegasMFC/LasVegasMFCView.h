@@ -30,6 +30,7 @@ public:
 	CRect mainPlayerRect;
 	CRgn rollingButtonRgn;
 	CRect rollingButtonRect;
+	CPoint pCasino[6];
 
 // Operations
 public:

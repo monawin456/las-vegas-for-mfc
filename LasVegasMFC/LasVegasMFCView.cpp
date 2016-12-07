@@ -117,6 +117,10 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 		rollingButtonRgn.CreateRectRgn(clientRect.Width() / 4 * 3, clientRect.Height() / 10 * 8, clientRect.Width(), clientRect.Height());
 		rollingButtonRgn.GetRgnBox(&rollingButtonRect);
 
+		pCasino[0] = { 0, (clientRect.Height() / 10) + (clientRect.Height() / 30) };
+		pCasino[1] = { 0, (clientRect.Height() / 10)*3 + (clientRect.Height() / 30)*2 };
+		pCasino[2] = { 0, (clientRect.Height() / 10)*5 + (clientRect.Height() / 30)*3 };
+
 		rgnCheck = FALSE;
 	}
 
@@ -274,117 +278,6 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 	pDC->SetBkColor(whiteRGB);
 	pDC->DrawText(_T("Rolling!!"), rollingButtonRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 	pDC->FrameRgn(&rollingButtonRgn, &blackBrush, 1, 1);
-
-	/*
-	for (int i = 0; i < 3; i++) {
-		pDoc->casino1->resetCasino();
-		pDoc->casino2->resetCasino();
-		pDoc->casino3->resetCasino();
-		pDoc->casino4->resetCasino();
-		pDoc->casino5->resetCasino();
-		pDoc->casino6->resetCasino();
-
-		pDoc->billDeck->resetDeck();
-
-		while (TRUE) {
-			pDoc->casino1->addBill(pDoc->billDeck->getBill());
-			if (pDoc->casino1->getTotalPrice() > 50000) {
-				break;
-			}
-		}
-		while (TRUE) {
-			pDoc->casino2->addBill(pDoc->billDeck->getBill());
-			if (pDoc->casino2->getTotalPrice() > 50000) {
-				break;
-			}
-		}
-		while (TRUE) {
-			pDoc->casino3->addBill(pDoc->billDeck->getBill());
-			if (pDoc->casino3->getTotalPrice() > 50000) {
-				break;
-			}
-		}
-		while (TRUE) {
-			pDoc->casino4->addBill(pDoc->billDeck->getBill());
-			if (pDoc->casino4->getTotalPrice() > 50000) {
-				break;
-			}
-		}
-		while (TRUE) {
-			pDoc->casino5->addBill(pDoc->billDeck->getBill());
-			if (pDoc->casino5->getTotalPrice() > 50000) {
-				break;
-			}
-		}
-		while (TRUE) {
-			pDoc->casino6->addBill(pDoc->billDeck->getBill());
-			if (pDoc->casino6->getTotalPrice() > 50000) {
-				break;
-			}
-		}
-
-		while (pDoc->player1->diceEmpty() || pDoc->player2->diceEmpty() || pDoc->player3->diceEmpty() || pDoc->player4->diceEmpty() || pDoc->player5->diceEmpty()) {
-			if (pDoc->player1->diceEmpty()) {
-
-				pDC->FillRgn(&playerRgn[0], &orangeBrush);
-				pDC->FillRgn(&playerRgn[1], &greenBrush);
-				pDC->FillRgn(&playerRgn[2], &blueBrush);
-				pDC->FillRgn(&playerRgn[3], &purpleBrush);
-
-				pDC->SetBkColor(orangeRGB);
-				pDC->DrawText(pDoc->player2->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-				pDC->SetBkColor(greenRGB);
-				pDC->DrawText(pDoc->player3->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-				pDC->SetBkColor(blueRGB);
-				pDC->DrawText(pDoc->player4->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-				pDC->SetBkColor(purpleRGB);
-				pDC->DrawText(pDoc->player5->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-
-				for (int i = 0; i < 4; i++) {
-					pDC->FrameRgn(&playerRgn[i], &blackBrush, 1, 1);
-				}
-
-				CDiceDlg dlg1;
-				dlg1.name = pDoc->player1->name;
-				dlg1.pDoc = pDoc;
-				dlg1.id = 1;
-				dlg1.DoModal();
-			}
-
-			if (pDoc->player2->diceEmpty()) {
-				CDiceDlg dlg2;
-				dlg2.name = pDoc->player2->name;
-				dlg2.pDoc = pDoc;
-				dlg2.id = 2;
-				dlg2.DoModal();
-			}
-
-			if (pDoc->player3->diceEmpty()) {
-				CDiceDlg dlg3;
-				dlg3.name = pDoc->player3->name;
-				dlg3.pDoc = pDoc;
-				dlg3.id = 3;
-				dlg3.DoModal();
-			}
-
-			if (pDoc->player4->diceEmpty()) {
-				CDiceDlg dlg4;
-				dlg4.name = pDoc->player4->name;
-				dlg4.pDoc = pDoc;
-				dlg4.id = 4;
-				dlg4.DoModal();
-			}
-
-			if (pDoc->player5->diceEmpty()) {
-				CDiceDlg dlg5;
-				dlg5.name = pDoc->player5->name;
-				dlg5.pDoc = pDoc;
-				dlg5.id = 5;
-				dlg5.DoModal();
-			}
-		}
-	}
-	*/
 }
 
 
