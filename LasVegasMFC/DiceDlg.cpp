@@ -53,29 +53,6 @@ END_MESSAGE_MAP()
 // CDiceDlg 메시지 처리기입니다.
 
 
-void CDiceDlg::OnBnClickedButton2()
-{
-	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	if (m_b) {
-		num = 2;
-		if (id == 1) {
-			pDoc->player1->Selection(num, pDoc->casino2);
-		}
-		else if (id == 2) {
-			pDoc->player2->Selection(num, pDoc->casino2);
-		}
-		else if (id == 3) {
-			pDoc->player3->Selection(num, pDoc->casino2);
-		}
-		else if (id == 4) {
-			pDoc->player4->Selection(num, pDoc->casino2);
-		}
-		else if (id == 5) {
-			pDoc->player5->Selection(num, pDoc->casino2);
-		}
-		EndDialog(IDCLOSE);
-	}
-}
 
 
 void CDiceDlg::OnBnClickedButton1()
@@ -84,21 +61,87 @@ void CDiceDlg::OnBnClickedButton1()
 	if (m_b) {
 		num = 1;
 		if (id == 1) {
-			pDoc->player1->Selection(num, pDoc->casino1);
+			if (pDoc->player1->num1 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player1->Selection(num, pDoc->casino1);
+			}
 		}
 		else if (id == 2) {
-			pDoc->player2->Selection(num, pDoc->casino1);
+			if (pDoc->player2->num1 != 0) 
+			{
+				m_n = TRUE;
+				pDoc->player2->Selection(num, pDoc->casino1);
+			}
 		}
 		else if (id == 3) {
-			pDoc->player3->Selection(num, pDoc->casino1);
+			if (pDoc->player3->num1 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player3->Selection(num, pDoc->casino1);
+			}
 		}
 		else if (id == 4) {
-			pDoc->player4->Selection(num, pDoc->casino1);
+			if (pDoc->player4->num1 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player4->Selection(num, pDoc->casino1);
+			}
 		}
 		else if (id == 5) {
-			pDoc->player5->Selection(num, pDoc->casino1);
+			if (pDoc->player5->num1 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player5->Selection(num, pDoc->casino1);
+			}
 		}
+		if(m_n)
 		EndDialog(IDCLOSE);
+	}
+}
+
+void CDiceDlg::OnBnClickedButton2()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	if (m_b) {
+		num = 2;
+		if (id == 1) {
+			if (pDoc->player1->num2 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player1->Selection(num, pDoc->casino2);
+			}
+		}
+		else if (id == 2) {
+			if (pDoc->player2->num2 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player2->Selection(num, pDoc->casino2);
+			}
+		}
+		else if (id == 3) {
+			if (pDoc->player3->num2 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player3->Selection(num, pDoc->casino2);
+			}
+		}
+		else if (id == 4) {
+			if (pDoc->player4->num2 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player4->Selection(num, pDoc->casino2);
+			}
+		}
+		else if (id == 5) {
+			if (pDoc->player5->num2 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player5->Selection(num, pDoc->casino2);
+			}
+		}
+		if (m_n)
+			EndDialog(IDCLOSE);
 	}
 }
 
@@ -109,20 +152,37 @@ void CDiceDlg::OnBnClickedButton3()
 	if (m_b) {
 		num = 3;
 		if (id == 1) {
-			pDoc->player1->Selection(num, pDoc->casino3);
+			if (pDoc->player1->num3 != 0) {
+				m_n = TRUE;
+				pDoc->player1->Selection(num, pDoc->casino3);
+			}
+
 		}
 		else if (id == 2) {
-			pDoc->player2->Selection(num, pDoc->casino3);
+			if (pDoc->player2->num3 != 0) {
+				m_n = TRUE;
+				pDoc->player2->Selection(num, pDoc->casino3);
+			}
 		}
 		else if (id == 3) {
-			pDoc->player3->Selection(num, pDoc->casino3);
+			if (pDoc->player3->num3 != 0) {
+				m_n = TRUE;
+				pDoc->player3->Selection(num, pDoc->casino3);
+			}
 		}
 		else if (id == 4) {
-			pDoc->player4->Selection(num, pDoc->casino3);
+			if (pDoc->player4->num3 != 0) {
+				m_n = TRUE;
+				pDoc->player4->Selection(num, pDoc->casino3);
+			}
 		}
 		else if (id == 5) {
-			pDoc->player5->Selection(num, pDoc->casino3);
+			if (pDoc->player5->num3 != 0) {
+				m_n = TRUE;
+				pDoc->player5->Selection(num, pDoc->casino3);
+			}
 		}
+		if(m_n)
 		EndDialog(IDCLOSE);
 	}
 }
@@ -134,20 +194,41 @@ void CDiceDlg::OnBnClickedButton4()
 	if (m_b) {
 		num = 4;
 		if (id == 1) {
-			pDoc->player1->Selection(num, pDoc->casino4);
+			if (pDoc->player1->num4 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player1->Selection(num, pDoc->casino4);
+			}
 		}
 		else if (id == 2) {
-			pDoc->player2->Selection(num, pDoc->casino4);
+			if (pDoc->player2->num4 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player2->Selection(num, pDoc->casino4);
+			}
 		}
 		else if (id == 3) {
-			pDoc->player3->Selection(num, pDoc->casino4);
+			if (pDoc->player3->num4 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player3->Selection(num, pDoc->casino4);
+			}
 		}
 		else if (id == 4) {
-			pDoc->player4->Selection(num, pDoc->casino4);
+			if (pDoc->player4->num4 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player4->Selection(num, pDoc->casino4);
+			}
 		}
 		else if (id == 5) {
-			pDoc->player5->Selection(num, pDoc->casino4);
+			if (pDoc->player5->num4 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player5->Selection(num, pDoc->casino4);
+			}
 		}
+		if(m_n)
 		EndDialog(IDCLOSE);
 	}
 }
@@ -159,20 +240,41 @@ void CDiceDlg::OnBnClickedButton5()
 	if (m_b) {
 		num = 5;
 		if (id == 1) {
-			pDoc->player1->Selection(num, pDoc->casino5);
+			if (pDoc->player1->num5 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player1->Selection(num, pDoc->casino5);
+			}
 		}
 		else if (id == 2) {
-			pDoc->player2->Selection(num, pDoc->casino5);
+			if (pDoc->player2->num5 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player2->Selection(num, pDoc->casino5);
+			}
 		}
 		else if (id == 3) {
-			pDoc->player3->Selection(num, pDoc->casino5);
+			if (pDoc->player3->num5 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player3->Selection(num, pDoc->casino5);
+			}
 		}
 		else if (id == 4) {
-			pDoc->player4->Selection(num, pDoc->casino5);
+			if (pDoc->player4->num5 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player4->Selection(num, pDoc->casino5);
+			}
 		}
 		else if (id == 5) {
-			pDoc->player5->Selection(num, pDoc->casino5);
+			if (pDoc->player5->num5 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player5->Selection(num, pDoc->casino5);
+			}
 		}
+		if(m_n)
 		EndDialog(IDCLOSE);
 	}
 }
@@ -184,21 +286,41 @@ void CDiceDlg::OnBnClickedButton6()
 	if (m_b) {
 		num = 6;
 		if (id == 1) {
-			
-			pDoc->player1->Selection(num, pDoc->casino6);
+			if (pDoc->player1->num6 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player1->Selection(num, pDoc->casino6);
+			}
 		}
 		else if (id == 2) {
-			pDoc->player2->Selection(num, pDoc->casino6);
+			if (pDoc->player2->num6 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player2->Selection(num, pDoc->casino6);
+			}
 		}
 		else if (id == 3) {
-			pDoc->player3->Selection(num, pDoc->casino6);
+			if (pDoc->player3->num6 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player3->Selection(num, pDoc->casino6);
+			}
 		}
 		else if (id == 4) {
-			pDoc->player4->Selection(num, pDoc->casino6);
+			if (pDoc->player4->num6 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player4->Selection(num, pDoc->casino6);
+			}
 		}
 		else if (id == 5) {
-			pDoc->player5->Selection(num, pDoc->casino6);
+			if (pDoc->player5->num6 != 0)
+			{
+				m_n = TRUE;
+				pDoc->player5->Selection(num, pDoc->casino6);
+			}
 		}
+		if(m_n)
 		EndDialog(IDCLOSE);
 	}
 }
@@ -210,6 +332,7 @@ BOOL CDiceDlg::OnInitDialog()
 
 	// TODO:  여기에 추가 초기화 작업을 추가합니다.
 	m_b = FALSE;
+	m_n = FALSE;
 	m_str.SetWindowText(name);
 
 	memDC.CreateCompatibleDC(m_pic1.GetWindowDC());
@@ -269,16 +392,276 @@ BOOL CDiceDlg::OnInitDialog()
 void CDiceDlg::OnBnClickedButton7()
 {
 	
-
 	CString str;
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	if ((id == 1) && (m_b == FALSE))
 	{
 		pDoc->player1->Rolling();
-		for (int i = 0; i < 8; i++)
+		for (int i = 0; i < 8; i++) {
 			dice[i] = pDoc->player1->GetDice(i);
+		}
 		pDoc->player1->GetDice(str);
 		m_str2.SetWindowText(str);
+		//
+		if (dice[0] == 1)
+		{
+			memDC.SelectObject(&rd1);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 2)
+		{
+			memDC.SelectObject(&rd2);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 3)
+		{
+			memDC.SelectObject(&rd3);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 4)
+		{
+			memDC.SelectObject(&rd4);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 5)
+		{
+			memDC.SelectObject(&rd5);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+
+		if (dice[0] == 6)
+		{
+			memDC.SelectObject(&rd6);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+		//
+		if (dice[1] == 1)
+		{
+			memDC.SelectObject(&rd1);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 2)
+		{
+			memDC.SelectObject(&rd2);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 3)
+		{
+			memDC.SelectObject(&rd3);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 4)
+		{
+			memDC.SelectObject(&rd4);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 5)
+		{
+			memDC.SelectObject(&rd5);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 6)
+		{
+			memDC.SelectObject(&rd6);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		//
+		if (dice[2] == 1)
+		{
+			memDC.SelectObject(&rd1);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 2)
+		{
+			memDC.SelectObject(&rd2);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 3)
+		{
+			memDC.SelectObject(&rd3);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 4)
+		{
+			memDC.SelectObject(&rd4);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 5)
+		{
+			memDC.SelectObject(&rd5);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 6)
+		{
+			memDC.SelectObject(&rd6);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		//
+
+		if (dice[3] == 1)
+		{
+			memDC.SelectObject(&rd1);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 2)
+		{
+			memDC.SelectObject(&rd2);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 3)
+		{
+			memDC.SelectObject(&rd3);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 4)
+		{
+			memDC.SelectObject(&rd4);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 5)
+		{
+			memDC.SelectObject(&rd5);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 6)
+		{
+			memDC.SelectObject(&rd6);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		//
+
+		if (dice[4] == 1)
+		{
+			memDC.SelectObject(&rd1);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 2)
+		{
+			memDC.SelectObject(&rd2);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 3)
+		{
+			memDC.SelectObject(&rd3);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 4)
+		{
+			memDC.SelectObject(&rd4);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 5)
+		{
+			memDC.SelectObject(&rd5);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 6)
+		{
+			memDC.SelectObject(&rd6);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+		//
+		if (dice[5] == 1)
+		{
+			memDC.SelectObject(&rd1);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 2)
+		{
+			memDC.SelectObject(&rd2);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 3)
+		{
+			memDC.SelectObject(&rd3);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 4)
+		{
+			memDC.SelectObject(&rd4);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 5)
+		{
+			memDC.SelectObject(&rd5);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 6)
+		{
+			memDC.SelectObject(&rd6);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+//
+
+		if (dice[6] == 1)
+		{
+			memDC.SelectObject(&rd1);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 2)
+		{
+			memDC.SelectObject(&rd2);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 3)
+		{
+			memDC.SelectObject(&rd3);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 4)
+		{
+			memDC.SelectObject(&rd4);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 5)
+		{
+			memDC.SelectObject(&rd5);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 6)
+		{
+			memDC.SelectObject(&rd6);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+//
+		if (dice[7] == 1)
+		{
+			memDC.SelectObject(&rd1);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 2)
+		{
+			memDC.SelectObject(&rd2);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 3)
+		{
+			memDC.SelectObject(&rd3);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 4)
+		{
+			memDC.SelectObject(&rd4);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 5)
+		{
+			memDC.SelectObject(&rd5);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 6)
+		{
+			memDC.SelectObject(&rd6);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+
+		
+
 	}
 	else if ((id == 2) && (m_b == FALSE))
 	{
@@ -287,6 +670,263 @@ void CDiceDlg::OnBnClickedButton7()
 			dice[i] = pDoc->player2->GetDice(i);
 		pDoc->player2->GetDice(str);
 		m_str2.SetWindowText(str);
+
+		//
+		if (dice[0] == 1)
+		{
+			memDC.SelectObject(&wd1);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 2)
+		{
+			memDC.SelectObject(&wd2);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 3)
+		{
+			memDC.SelectObject(&wd3);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 4)
+		{
+			memDC.SelectObject(&wd4);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 5)
+		{
+			memDC.SelectObject(&wd5);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+
+		if (dice[0] == 6)
+		{
+			memDC.SelectObject(&wd6);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+		//
+		if (dice[1] == 1)
+		{
+			memDC.SelectObject(&wd1);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 2)
+		{
+			memDC.SelectObject(&wd2);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 3)
+		{
+			memDC.SelectObject(&wd3);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 4)
+		{
+			memDC.SelectObject(&wd4);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 5)
+		{
+			memDC.SelectObject(&wd5);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 6)
+		{
+			memDC.SelectObject(&wd6);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		//
+		if (dice[2] == 1)
+		{
+			memDC.SelectObject(&wd1);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 2)
+		{
+			memDC.SelectObject(&wd2);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 3)
+		{
+			memDC.SelectObject(&wd3);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 4)
+		{
+			memDC.SelectObject(&wd4);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 5)
+		{
+			memDC.SelectObject(&wd5);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 6)
+		{
+			memDC.SelectObject(&wd6);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		//
+
+		if (dice[3] == 1)
+		{
+			memDC.SelectObject(&wd1);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 2)
+		{
+			memDC.SelectObject(&wd2);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 3)
+		{
+			memDC.SelectObject(&wd3);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 4)
+		{
+			memDC.SelectObject(&wd4);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 5)
+		{
+			memDC.SelectObject(&wd5);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 6)
+		{
+			memDC.SelectObject(&wd6);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		//
+
+		if (dice[4] == 1)
+		{
+			memDC.SelectObject(&wd1);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 2)
+		{
+			memDC.SelectObject(&wd2);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 3)
+		{
+			memDC.SelectObject(&wd3);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 4)
+		{
+			memDC.SelectObject(&wd4);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 5)
+		{
+			memDC.SelectObject(&wd5);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 6)
+		{
+			memDC.SelectObject(&wd6);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+		//
+		if (dice[5] == 1)
+		{
+			memDC.SelectObject(&wd1);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 2)
+		{
+			memDC.SelectObject(&wd2);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 3)
+		{
+			memDC.SelectObject(&wd3);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 4)
+		{
+			memDC.SelectObject(&wd4);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 5)
+		{
+			memDC.SelectObject(&wd5);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 6)
+		{
+			memDC.SelectObject(&wd6);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		//
+
+		if (dice[6] == 1)
+		{
+			memDC.SelectObject(&wd1);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 2)
+		{
+			memDC.SelectObject(&wd2);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 3)
+		{
+			memDC.SelectObject(&wd3);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 4)
+		{
+			memDC.SelectObject(&wd4);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 5)
+		{
+			memDC.SelectObject(&wd5);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 6)
+		{
+			memDC.SelectObject(&wd6);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+		//
+		if (dice[7] == 1)
+		{
+			memDC.SelectObject(&wd1);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 2)
+		{
+			memDC.SelectObject(&wd2);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 3)
+		{
+			memDC.SelectObject(&wd3);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 4)
+		{
+			memDC.SelectObject(&wd4);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 5)
+		{
+			memDC.SelectObject(&wd5);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 6)
+		{
+			memDC.SelectObject(&wd6);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
 
 
 	}
@@ -297,6 +937,264 @@ void CDiceDlg::OnBnClickedButton7()
 			dice[i] = pDoc->player3->GetDice(i);
 		pDoc->player3->GetDice(str);
 		m_str2.SetWindowText(str);
+
+		//
+		if (dice[0] == 1)
+		{
+			memDC.SelectObject(&gd1);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 2)
+		{
+			memDC.SelectObject(&gd2);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 3)
+		{
+			memDC.SelectObject(&gd3);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 4)
+		{
+			memDC.SelectObject(&gd4);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 5)
+		{
+			memDC.SelectObject(&gd5);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+
+		if (dice[0] == 6)
+		{
+			memDC.SelectObject(&gd6);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+		//
+		if (dice[1] == 1)
+		{
+			memDC.SelectObject(&gd1);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 2)
+		{
+			memDC.SelectObject(&gd2);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 3)
+		{
+			memDC.SelectObject(&gd3);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 4)
+		{
+			memDC.SelectObject(&gd4);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 5)
+		{
+			memDC.SelectObject(&gd5);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 6)
+		{
+			memDC.SelectObject(&gd6);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		//
+		if (dice[2] == 1)
+		{
+			memDC.SelectObject(&gd1);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 2)
+		{
+			memDC.SelectObject(&gd2);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 3)
+		{
+			memDC.SelectObject(&gd3);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 4)
+		{
+			memDC.SelectObject(&gd4);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 5)
+		{
+			memDC.SelectObject(&gd5);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 6)
+		{
+			memDC.SelectObject(&gd6);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		//
+
+		if (dice[3] == 1)
+		{
+			memDC.SelectObject(&gd1);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 2)
+		{
+			memDC.SelectObject(&gd2);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 3)
+		{
+			memDC.SelectObject(&gd3);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 4)
+		{
+			memDC.SelectObject(&gd4);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 5)
+		{
+			memDC.SelectObject(&gd5);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 6)
+		{
+			memDC.SelectObject(&gd6);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		//
+
+		if (dice[4] == 1)
+		{
+			memDC.SelectObject(&gd1);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 2)
+		{
+			memDC.SelectObject(&gd2);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 3)
+		{
+			memDC.SelectObject(&gd3);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 4)
+		{
+			memDC.SelectObject(&gd4);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 5)
+		{
+			memDC.SelectObject(&gd5);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 6)
+		{
+			memDC.SelectObject(&gd6);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+		//
+		if (dice[5] == 1)
+		{
+			memDC.SelectObject(&gd1);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 2)
+		{
+			memDC.SelectObject(&gd2);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 3)
+		{
+			memDC.SelectObject(&gd3);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 4)
+		{
+			memDC.SelectObject(&gd4);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 5)
+		{
+			memDC.SelectObject(&gd5);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 6)
+		{
+			memDC.SelectObject(&gd6);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		//
+
+		if (dice[6] == 1)
+		{
+			memDC.SelectObject(&gd1);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 2)
+		{
+			memDC.SelectObject(&gd2);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 3)
+		{
+			memDC.SelectObject(&gd3);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 4)
+		{
+			memDC.SelectObject(&gd4);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 5)
+		{
+			memDC.SelectObject(&gd5);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 6)
+		{
+			memDC.SelectObject(&gd6);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+		//
+		if (dice[7] == 1)
+		{
+			memDC.SelectObject(&gd1);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 2)
+		{
+			memDC.SelectObject(&gd2);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 3)
+		{
+			memDC.SelectObject(&gd3);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 4)
+		{
+			memDC.SelectObject(&gd4);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 5)
+		{
+			memDC.SelectObject(&gd5);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 6)
+		{
+			memDC.SelectObject(&gd6);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
 	}
 	else if ((id == 4) && (m_b == FALSE))
 	{
@@ -305,6 +1203,264 @@ void CDiceDlg::OnBnClickedButton7()
 			dice[i] = pDoc->player4->GetDice(i);
 		pDoc->player4->GetDice(str);
 		m_str2.SetWindowText(str);
+
+		//
+		if (dice[0] == 1)
+		{
+			memDC.SelectObject(&bd1);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 2)
+		{
+			memDC.SelectObject(&bd2);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 3)
+		{
+			memDC.SelectObject(&bd3);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 4)
+		{
+			memDC.SelectObject(&bd4);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 5)
+		{
+			memDC.SelectObject(&bd5);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+
+		if (dice[0] == 6)
+		{
+			memDC.SelectObject(&bd6);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+		//
+		if (dice[1] == 1)
+		{
+			memDC.SelectObject(&bd1);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 2)
+		{
+			memDC.SelectObject(&bd2);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 3)
+		{
+			memDC.SelectObject(&bd3);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 4)
+		{
+			memDC.SelectObject(&bd4);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 5)
+		{
+			memDC.SelectObject(&bd5);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 6)
+		{
+			memDC.SelectObject(&bd6);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		//
+		if (dice[2] == 1)
+		{
+			memDC.SelectObject(&bd1);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 2)
+		{
+			memDC.SelectObject(&bd2);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 3)
+		{
+			memDC.SelectObject(&bd3);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 4)
+		{
+			memDC.SelectObject(&bd4);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 5)
+		{
+			memDC.SelectObject(&bd5);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 6)
+		{
+			memDC.SelectObject(&bd6);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		//
+
+		if (dice[3] == 1)
+		{
+			memDC.SelectObject(&bd1);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 2)
+		{
+			memDC.SelectObject(&bd2);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 3)
+		{
+			memDC.SelectObject(&bd3);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 4)
+		{
+			memDC.SelectObject(&bd4);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 5)
+		{
+			memDC.SelectObject(&bd5);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 6)
+		{
+			memDC.SelectObject(&bd6);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		//
+
+		if (dice[4] == 1)
+		{
+			memDC.SelectObject(&bd1);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 2)
+		{
+			memDC.SelectObject(&bd2);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 3)
+		{
+			memDC.SelectObject(&bd3);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 4)
+		{
+			memDC.SelectObject(&bd4);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 5)
+		{
+			memDC.SelectObject(&bd5);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 6)
+		{
+			memDC.SelectObject(&bd6);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+		//
+		if (dice[5] == 1)
+		{
+			memDC.SelectObject(&bd1);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 2)
+		{
+			memDC.SelectObject(&bd2);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 3)
+		{
+			memDC.SelectObject(&bd3);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 4)
+		{
+			memDC.SelectObject(&bd4);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 5)
+		{
+			memDC.SelectObject(&bd5);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 6)
+		{
+			memDC.SelectObject(&bd6);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		//
+
+		if (dice[6] == 1)
+		{
+			memDC.SelectObject(&bd1);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 2)
+		{
+			memDC.SelectObject(&bd2);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 3)
+		{
+			memDC.SelectObject(&bd3);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 4)
+		{
+			memDC.SelectObject(&bd4);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 5)
+		{
+			memDC.SelectObject(&bd5);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 6)
+		{
+			memDC.SelectObject(&bd6);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+		//
+		if (dice[7] == 1)
+		{
+			memDC.SelectObject(&bd1);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 2)
+		{
+			memDC.SelectObject(&bd2);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 3)
+		{
+			memDC.SelectObject(&bd3);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 4)
+		{
+			memDC.SelectObject(&bd4);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 5)
+		{
+			memDC.SelectObject(&bd5);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 6)
+		{
+			memDC.SelectObject(&bd6);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
 	}
 	else if ((id == 5) && (m_b == FALSE))
 	{
@@ -313,6 +1469,264 @@ void CDiceDlg::OnBnClickedButton7()
 			dice[i] = pDoc->player5->GetDice(i);
 		pDoc->player5->GetDice(str);
 		m_str2.SetWindowText(str);
+
+		//
+		if (dice[0] == 1)
+		{
+			memDC.SelectObject(&kd1);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 2)
+		{
+			memDC.SelectObject(&kd2);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 3)
+		{
+			memDC.SelectObject(&kd3);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 4)
+		{
+			memDC.SelectObject(&kd4);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[0] == 5)
+		{
+			memDC.SelectObject(&kd5);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+
+		if (dice[0] == 6)
+		{
+			memDC.SelectObject(&kd6);
+			m_pic1.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+		//
+		if (dice[1] == 1)
+		{
+			memDC.SelectObject(&kd1);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 2)
+		{
+			memDC.SelectObject(&kd2);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 3)
+		{
+			memDC.SelectObject(&kd3);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 4)
+		{
+			memDC.SelectObject(&kd4);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 5)
+		{
+			memDC.SelectObject(&kd5);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[1] == 6)
+		{
+			memDC.SelectObject(&kd6);
+			m_pic2.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		//
+		if (dice[2] == 1)
+		{
+			memDC.SelectObject(&kd1);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 2)
+		{
+			memDC.SelectObject(&kd2);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 3)
+		{
+			memDC.SelectObject(&kd3);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 4)
+		{
+			memDC.SelectObject(&kd4);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 5)
+		{
+			memDC.SelectObject(&kd5);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[2] == 6)
+		{
+			memDC.SelectObject(&kd6);
+			m_pic3.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		//
+
+		if (dice[3] == 1)
+		{
+			memDC.SelectObject(&kd1);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 2)
+		{
+			memDC.SelectObject(&kd2);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 3)
+		{
+			memDC.SelectObject(&kd3);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 4)
+		{
+			memDC.SelectObject(&kd4);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 5)
+		{
+			memDC.SelectObject(&kd5);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[3] == 6)
+		{
+			memDC.SelectObject(&kd6);
+			m_pic4.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		//
+
+		if (dice[4] == 1)
+		{
+			memDC.SelectObject(&kd1);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 2)
+		{
+			memDC.SelectObject(&kd2);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 3)
+		{
+			memDC.SelectObject(&kd3);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 4)
+		{
+			memDC.SelectObject(&kd4);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 5)
+		{
+			memDC.SelectObject(&kd5);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[4] == 6)
+		{
+			memDC.SelectObject(&kd6);
+			m_pic5.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+		//
+		if (dice[5] == 1)
+		{
+			memDC.SelectObject(&kd1);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 2)
+		{
+			memDC.SelectObject(&kd2);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 3)
+		{
+			memDC.SelectObject(&kd3);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 4)
+		{
+			memDC.SelectObject(&kd4);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 5)
+		{
+			memDC.SelectObject(&kd5);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[5] == 6)
+		{
+			memDC.SelectObject(&kd6);
+			m_pic6.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		//
+
+		if (dice[6] == 1)
+		{
+			memDC.SelectObject(&kd1);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 2)
+		{
+			memDC.SelectObject(&kd2);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 3)
+		{
+			memDC.SelectObject(&kd3);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 4)
+		{
+			memDC.SelectObject(&kd4);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 5)
+		{
+			memDC.SelectObject(&kd5);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[6] == 6)
+		{
+			memDC.SelectObject(&kd6);
+			m_pic7.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
+		//
+		if (dice[7] == 1)
+		{
+			memDC.SelectObject(&kd1);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 2)
+		{
+			memDC.SelectObject(&kd2);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 3)
+		{
+			memDC.SelectObject(&kd3);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 4)
+		{
+			memDC.SelectObject(&kd4);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 5)
+		{
+			memDC.SelectObject(&kd5);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+		if (dice[7] == 6)
+		{
+			memDC.SelectObject(&kd6);
+			m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
+		}
+
 	}
 	m_b = TRUE;
 }

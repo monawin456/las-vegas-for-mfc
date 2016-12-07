@@ -27,6 +27,7 @@ public:
 	CString name;
 	CLasVegasMFCDoc * pDoc;
 	BOOL m_b;
+	BOOL m_n;
 	int dice[8];
 	int id;
 	afx_msg void OnBnClickedButton2();
