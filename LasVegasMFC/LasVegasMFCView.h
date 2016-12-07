@@ -23,7 +23,13 @@ public:
 // Attributes
 public:
 	CLasVegasMFCDoc* GetDocument() const;
+	BOOL rgnCheck;
 	CRgn playerRgn[4];
+	CRect playerRect[4];
+	CRgn mainPlayerRgn;
+	CRect mainPlayerRect;
+	CRgn rollingButtonRgn;
+	CRect rollingButtonRect;
 
 // Operations
 public:
@@ -49,6 +55,8 @@ protected:
 protected:
 	DECLARE_MESSAGE_MAP()
 	virtual void OnDraw(CDC* /*pDC*/);
+public:
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 };
 
 #ifndef _DEBUG  // debug version in LasVegasMFCView.cpp

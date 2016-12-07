@@ -28,6 +28,7 @@
 IMPLEMENT_DYNCREATE(CLasVegasMFCView, CFormView)
 
 BEGIN_MESSAGE_MAP(CLasVegasMFCView, CFormView)
+	ON_WM_LBUTTONDOWN()
 END_MESSAGE_MAP()
 
 // CLasVegasMFCView construction/destruction
@@ -63,6 +64,7 @@ void CLasVegasMFCView::OnInitialUpdate()
 	//ResizeParentToFit();
 
 	srand((unsigned)time(NULL));
+	rgnCheck = TRUE;
 
 }
 
@@ -96,19 +98,31 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
 	CLasVegasMFCDoc *pDoc = (CLasVegasMFCDoc *)GetDocument();
 
-	// Player Rgn
+	// client rect
 	CRect clientRect;
 	GetClientRect(&clientRect);
 
-	//CRgn playerRgn[4]; // move to view class member
-	for (int i = 0; i < 4; i++) {
-		playerRgn[i].CreateRectRgn(clientRect.Width() / 4 * i, 0, clientRect.Width() / 4 * (i + 1), clientRect.Height() / 7);
-	}
-	CRect playerRect[4];
-	for (int i = 0; i < 4; i++) {
-		playerRgn[i].GetRgnBox(playerRect[i]);
+	// init rgn
+	if (rgnCheck) {
+		for (int i = 0; i < 4; i++) {
+			playerRgn[i].CreateRectRgn(clientRect.Width() / 4 * i, 0, clientRect.Width() / 4 * (i + 1), clientRect.Height() / 10);
+		}
+		for (int i = 0; i < 4; i++) {
+			playerRgn[i].GetRgnBox(playerRect[i]);
+		}
+
+		mainPlayerRgn.CreateRectRgn(0, clientRect.Height() / 10 * 8, clientRect.Width() / 4, clientRect.Height());
+		mainPlayerRgn.GetRgnBox(&mainPlayerRect);
+
+		rollingButtonRgn.CreateRectRgn(clientRect.Width() / 4 * 3, clientRect.Height() / 10 * 8, clientRect.Width(), clientRect.Height());
+		rollingButtonRgn.GetRgnBox(&rollingButtonRect);
+
+		rgnCheck = FALSE;
 	}
 
+	// set color
+	COLORREF whiteRGB;
+	whiteRGB = RGB(255, 255, 255);
 	COLORREF blackRGB;
 	blackRGB = RGB(0, 0, 0);
 	COLORREF redRGB;
@@ -122,6 +136,8 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 	COLORREF purpleRGB;
 	purpleRGB = RGB(255, 0, 255);
 
+	CBrush whiteBrush;
+	whiteBrush.CreateSolidBrush(whiteRGB);
 	CBrush blackBrush;
 	blackBrush.CreateSolidBrush(blackRGB);
 	CBrush redBrush;
@@ -136,8 +152,6 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 	purpleBrush.CreateSolidBrush(purpleRGB);
 
 	// Game Start
-	pDoc -> round = (pDoc -> round + 1) % 5;
-
 	if (pDoc->round == 0) {
 		pDC->FillRgn(&playerRgn[0], &orangeBrush);
 		pDC->FillRgn(&playerRgn[1], &greenBrush);
@@ -156,6 +170,10 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 		for (int i = 0; i < 4; i++) {
 			pDC->FrameRgn(&playerRgn[i], &blackBrush, 1, 1);
 		}
+
+		pDC->FillRgn(&mainPlayerRgn, &redBrush);
+		pDC->SetBkColor(redRGB);
+		pDC->DrawText(pDoc->player1->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 	}
 	else if (pDoc->round == 1) {
 		pDC->FillRgn(&playerRgn[0], &redBrush);
@@ -163,7 +181,7 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 		pDC->FillRgn(&playerRgn[2], &blueBrush);
 		pDC->FillRgn(&playerRgn[3], &purpleBrush);
 
-		pDC->SetBkColor(orangeRGB);
+		pDC->SetBkColor(redRGB);
 		pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 		pDC->SetBkColor(greenRGB);
 		pDC->DrawText(pDoc->player3->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
@@ -175,6 +193,10 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 		for (int i = 0; i < 4; i++) {
 			pDC->FrameRgn(&playerRgn[i], &blackBrush, 1, 1);
 		}
+
+		pDC->FillRgn(&mainPlayerRgn, &orangeBrush);
+		pDC->SetBkColor(orangeRGB);
+		pDC->DrawText(pDoc->player2->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 	}
 	else if (pDoc->round == 2) {
 		pDC->FillRgn(&playerRgn[0], &redBrush);
@@ -182,9 +204,9 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 		pDC->FillRgn(&playerRgn[2], &blueBrush);
 		pDC->FillRgn(&playerRgn[3], &purpleBrush);
 
-		pDC->SetBkColor(orangeRGB);
+		pDC->SetBkColor(redRGB);
 		pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		pDC->SetBkColor(greenRGB);
+		pDC->SetBkColor(orangeRGB);
 		pDC->DrawText(pDoc->player2->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 		pDC->SetBkColor(blueRGB);
 		pDC->DrawText(pDoc->player4->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
@@ -194,6 +216,10 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 		for (int i = 0; i < 4; i++) {
 			pDC->FrameRgn(&playerRgn[i], &blackBrush, 1, 1);
 		}
+
+		pDC->FillRgn(&mainPlayerRgn, &greenBrush);
+		pDC->SetBkColor(greenRGB);
+		pDC->DrawText(pDoc->player3->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 	}
 	else if (pDoc->round == 3) {
 		pDC->FillRgn(&playerRgn[0], &redBrush);
@@ -201,11 +227,11 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 		pDC->FillRgn(&playerRgn[2], &greenBrush);
 		pDC->FillRgn(&playerRgn[3], &purpleBrush);
 
-		pDC->SetBkColor(orangeRGB);
+		pDC->SetBkColor(redRGB);
 		pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		pDC->SetBkColor(greenRGB);
+		pDC->SetBkColor(orangeRGB);
 		pDC->DrawText(pDoc->player2->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		pDC->SetBkColor(blueRGB);
+		pDC->SetBkColor(greenRGB);
 		pDC->DrawText(pDoc->player3->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 		pDC->SetBkColor(purpleRGB);
 		pDC->DrawText(pDoc->player5->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
@@ -213,6 +239,10 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 		for (int i = 0; i < 4; i++) {
 			pDC->FrameRgn(&playerRgn[i], &blackBrush, 1, 1);
 		}
+
+		pDC->FillRgn(&mainPlayerRgn, &blueBrush);
+		pDC->SetBkColor(blueRGB);
+		pDC->DrawText(pDoc->player4->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 	}
 	else if (pDoc->round == 4) {
 		pDC->FillRgn(&playerRgn[0], &redBrush);
@@ -220,19 +250,30 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 		pDC->FillRgn(&playerRgn[2], &greenBrush);
 		pDC->FillRgn(&playerRgn[3], &blueBrush);
 
-		pDC->SetBkColor(orangeRGB);
+		pDC->SetBkColor(redRGB);
 		pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		pDC->SetBkColor(greenRGB);
+		pDC->SetBkColor(orangeRGB);
 		pDC->DrawText(pDoc->player2->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		pDC->SetBkColor(blueRGB);
+		pDC->SetBkColor(greenRGB);
 		pDC->DrawText(pDoc->player3->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		pDC->SetBkColor(purpleRGB);
+		pDC->SetBkColor(blueRGB);
 		pDC->DrawText(pDoc->player4->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 
 		for (int i = 0; i < 4; i++) {
 			pDC->FrameRgn(&playerRgn[i], &blackBrush, 1, 1);
 		}
+
+		pDC->FillRgn(&mainPlayerRgn, &purpleBrush);
+		pDC->SetBkColor(purpleRGB);
+		pDC->DrawText(pDoc->player5->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 	}
+
+	pDC->FrameRgn(&mainPlayerRgn, &blackBrush, 1, 1);
+
+	pDC->FillRgn(&rollingButtonRgn, &whiteBrush);
+	pDC->SetBkColor(whiteRGB);
+	pDC->DrawText(_T("Rolling!!"), rollingButtonRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+	pDC->FrameRgn(&rollingButtonRgn, &blackBrush, 1, 1);
 
 	/*
 	for (int i = 0; i < 3; i++) {
@@ -344,4 +385,74 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 		}
 	}
 	*/
+}
+
+
+void CLasVegasMFCView::OnLButtonDown(UINT nFlags, CPoint point)
+{
+	// TODO: Add your message handler code here and/or call default
+	CLasVegasMFCDoc *pDoc = (CLasVegasMFCDoc *)GetDocument();
+
+	CDiceDlg dlg;
+
+	if (rollingButtonRgn.PtInRegion(point) && (pDoc -> round == 0)) {
+		dlg.name = pDoc->player1->name;
+		dlg.pDoc = pDoc;
+		dlg.id = 1;
+		dlg.DoModal();
+	}
+	else if (rollingButtonRgn.PtInRegion(point) && (pDoc->round == 1)) {
+		dlg.name = pDoc->player2->name;
+		dlg.pDoc = pDoc;
+		dlg.id = 2;
+		dlg.DoModal();
+	}
+	else if (rollingButtonRgn.PtInRegion(point) && (pDoc->round == 2)) {
+		dlg.name = pDoc->player3->name;
+		dlg.pDoc = pDoc;
+		dlg.id = 3;
+		dlg.DoModal();
+	}
+	else if (rollingButtonRgn.PtInRegion(point) && (pDoc->round == 3)) {
+		dlg.name = pDoc->player4->name;
+		dlg.pDoc = pDoc;
+		dlg.id = 4;
+		dlg.DoModal();
+	}
+	else if (rollingButtonRgn.PtInRegion(point) && (pDoc->round == 4)) {
+		dlg.name = pDoc->player5->name;
+		dlg.pDoc = pDoc;
+		dlg.id = 5;
+		dlg.DoModal();
+	}
+
+	pDoc->round = (pDoc->round + 1) % 5;
+
+	if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+		pDoc->round = (pDoc->round + 1) % 5;
+	}
+
+	if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+		pDoc->round = (pDoc->round + 1) % 5;
+	}
+
+	if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+		pDoc->round = (pDoc->round + 1) % 5;
+	}
+
+	if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+		pDoc->round = (pDoc->round + 1) % 5;
+	}
+
+	if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+		pDoc->round = (pDoc->round + 1) % 5;
+	}
+
+	Invalidate();
+
+	if (!(pDoc->player1->diceEmpty() || pDoc->player2->diceEmpty() || pDoc->player3->diceEmpty() || pDoc->player4->diceEmpty() || pDoc->player5->diceEmpty())) {
+		AfxMessageBox(_T("End"));
+	}
+
+	//CFormView::OnLButtonDown(nFlags, point);
 }

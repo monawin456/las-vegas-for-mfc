@@ -67,7 +67,7 @@ BOOL CLasVegasMFCDoc::OnNewDocument()
 	player4->name = _T("Player4");
 	player5->name = _T("Player5");
 
-	round = -1;
+	round = 0;
 
 	casino1->resetCasino();
 	casino2->resetCasino();
