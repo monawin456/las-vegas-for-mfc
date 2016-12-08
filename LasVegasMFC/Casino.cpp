@@ -2,6 +2,8 @@
 #include "Casino.h"
 #include "Bill.h"
 #include "Dice.h"
+#include "LasVegasMFCDoc.h"
+#include "Player.h"
 
 void Casino::setTotalPrice()
 {
@@ -101,6 +103,27 @@ int Casino::getTotalPrice()
 {
 	setTotalPrice();
 	return totalPrice;
+}
+
+CString Casino::getCasinoInfo1()
+{
+	CString str;
+	str.Format(_T("%s : %d      %s : %d"), pDoc->player1->name, player1DiceNum, pDoc->player2->name, player2DiceNum);
+	return str;
+}
+
+CString Casino::getCasinoInfo2()
+{
+	CString str;
+	str.Format(_T("%s : %d      %s : %d      %s : %d"), pDoc->player3->name, player3DiceNum, pDoc->player4->name, player4DiceNum, pDoc->player5->name, player5DiceNum);
+	return str;
+}
+
+CString Casino::getCasinoInfo3()
+{
+	CString str;
+	str.Format(_T("%d$"), totalPrice);
+	return str;
 }
 
 void Casino::printInfo(CString &strTotalPrice, CString &strDiceNum)

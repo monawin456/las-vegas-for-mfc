@@ -67,14 +67,20 @@ BOOL CLasVegasMFCDoc::OnNewDocument()
 	player4->name = _T("Player4");
 	player5->name = _T("Player5");
 
-	round = 0;
+	round = -1;
 
 	casino1->resetCasino();
+	casino1->pDoc = this;
 	casino2->resetCasino();
+	casino2->pDoc = this;
 	casino3->resetCasino();
+	casino3->pDoc = this;
 	casino4->resetCasino();
+	casino4->pDoc = this;
 	casino5->resetCasino();
+	casino5->pDoc = this;
 	casino6->resetCasino();
+	casino6->pDoc = this;
 
 	billDeck->resetDeck();
 
