@@ -442,7 +442,72 @@ void CLasVegasMFCView::OnLButtonDown(UINT nFlags, CPoint point)
 	}
 
 	if (!(pDoc->player1->diceEmpty() || pDoc->player2->diceEmpty() || pDoc->player3->diceEmpty() || pDoc->player4->diceEmpty() || pDoc->player5->diceEmpty())) {
-		AfxMessageBox(_T("End"));
+		
+		pDoc->casino1->ClosingCasino();
+		pDoc->casino2->ClosingCasino();
+		pDoc->casino3->ClosingCasino();
+		pDoc->casino4->ClosingCasino();
+		pDoc->casino5->ClosingCasino();
+		pDoc->casino6->ClosingCasino();
+
+		CString str;
+		str.Format(_T("1(%d), 2(%d), 3(%d), 4(%d), 5(%d)"), pDoc->player1->GetMoney(),
+			pDoc->player2->GetMoney(), pDoc->player3->GetMoney(), pDoc->player4->GetMoney(),
+			pDoc->player5->GetMoney());
+		AfxMessageBox(str);
+
+		pDoc -> round = -1;
+
+		pDoc->casino1->resetCasino();
+		pDoc->casino2->resetCasino();
+		pDoc->casino3->resetCasino();
+		pDoc->casino4->resetCasino();
+		pDoc->casino5->resetCasino();
+		pDoc->casino6->resetCasino();
+
+		while (TRUE) {
+			pDoc->casino1->addBill(pDoc->billDeck->getBill());
+			if (pDoc->casino1->getTotalPrice() >= 50000) {
+				break;
+			}
+		}
+		while (TRUE) {
+			pDoc->casino2->addBill(pDoc->billDeck->getBill());
+			if (pDoc->casino2->getTotalPrice() >= 50000) {
+				break;
+			}
+		}
+		while (TRUE) {
+			pDoc->casino3->addBill(pDoc->billDeck->getBill());
+			if (pDoc->casino3->getTotalPrice() >= 50000) {
+				break;
+			}
+		}
+		while (TRUE) {
+			pDoc->casino4->addBill(pDoc->billDeck->getBill());
+			if (pDoc->casino4->getTotalPrice() >= 50000) {
+				break;
+			}
+		}
+		while (TRUE) {
+			pDoc->casino5->addBill(pDoc->billDeck->getBill());
+			if (pDoc->casino5->getTotalPrice() >= 50000) {
+				break;
+			}
+		}
+		while (TRUE) {
+			pDoc->casino6->addBill(pDoc->billDeck->getBill());
+			if (pDoc->casino6->getTotalPrice() >= 50000) {
+				break;
+			}
+		}
+		pDoc->player1->RoundDice();
+		pDoc->player2->RoundDice();
+		pDoc->player3->RoundDice();
+		pDoc->player4->RoundDice();
+		pDoc->player5->RoundDice();
+
+		Invalidate();
 	}
 
 	//CFormView::OnLButtonDown(nFlags, point);

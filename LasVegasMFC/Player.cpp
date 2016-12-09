@@ -18,14 +18,14 @@ Player::~Player()
 	delete[] dice;
 }
 
-void Player::GetMoney(CString & Money)
+int Player::GetMoney()
 {
-	Money.Format(_T("Money : %d"), money);
+	return money;
 }
 
-void Player::AddMoney(Bill * bill)
+void Player::AddMoney(int n)
 {
-	money += bill -> getPrice();
+	money += n;
 }
 
 void Player::GetDice(CString & k_dice)

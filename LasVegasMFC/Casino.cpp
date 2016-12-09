@@ -127,6 +127,58 @@ CString Casino::getCasinoInfo3()
 	return str;
 }
 
+BOOL Casino::ClosingCasino()
+{
+	for (int i = 8; i >= 1; i--)
+	{
+		if (Check(i))
+		{
+			if (player1DiceNum == i) {
+				pDoc->player1->AddMoney(getTotalPrice());
+				return TRUE;
+			}
+			if (player2DiceNum == i) {
+				pDoc->player2->AddMoney(getTotalPrice());
+				return TRUE;
+			}
+			if (player3DiceNum == i) {
+				pDoc->player3->AddMoney(getTotalPrice());
+				return TRUE;
+			}
+			if (player4DiceNum == i) {
+				pDoc->player4->AddMoney(getTotalPrice());
+				return TRUE;
+			}
+			if (player5DiceNum == i) {
+				pDoc->player5->AddMoney(getTotalPrice());
+				return TRUE;
+			}
+		}
+		
+	}
+	return FALSE;
+}
+
+BOOL Casino::Check(int n)
+{
+	int total = 0;
+	if (player1DiceNum == n)
+		total++;
+	if (player2DiceNum == n)
+		total++;
+	if (player3DiceNum == n)
+		total++;
+	if (player4DiceNum == n)
+		total++;
+	if (player5DiceNum == n)
+		total++;
+	
+	if (total == 1)
+		return TRUE;
+	else
+		return FALSE;
+}
+
 void Casino::printInfo(CString &strTotalPrice, CString &strDiceNum)
 {
 	strTotalPrice.Format(_T("Total Price: %d"), getTotalPrice());

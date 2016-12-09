@@ -39,6 +39,8 @@ public:
 	CString getCasinoInfo1();
 	CString getCasinoInfo2();
 	CString getCasinoInfo3();
+	BOOL ClosingCasino();
+	BOOL Check(int n);
 
 	void printInfo(CString &strTotalPrice, CString &strDiceNum);
 };
