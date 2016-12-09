@@ -64,13 +64,14 @@ void CLasVegasMFCView::OnInitialUpdate()
 	GetParentFrame()->RecalcLayout();
 	//ResizeParentToFit();
 
-	rgnCheck = TRUE;
 	rollingButtonCheck = FALSE;
 
 	for (int i = 0; i < 6; i++) {
 		pCasino[i].x = 0;
 		pCasino[i].y = 0;
 	}
+
+	GetClientRect(&clientRect);
 
 }
 
@@ -105,30 +106,30 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 	CLasVegasMFCDoc *pDoc = (CLasVegasMFCDoc *)GetDocument();
 
 	// client rect
-	CRect clientRect;
-	GetClientRect(&clientRect);
+	//CRect clientRect;
+	//GetClientRect(&clientRect);
+
+	CRgn playerRgn[4];
+	CRect playerRect[4];
+	CRgn mainPlayerRgn;
+	CRect mainPlayerRect;
+	CRgn rollingButtonRgn;
+	CRect rollingButtonRect;
 
 	// init rgn
-	if (rgnCheck) {
-		for (int i = 0; i < 4; i++) {
-			playerRgn[i].CreateRectRgn(clientRect.Width() / 4 * i, 0, clientRect.Width() / 4 * (i + 1), clientRect.Height() / 10);
-		}
-		for (int i = 0; i < 4; i++) {
-			playerRgn[i].GetRgnBox(playerRect[i]);
-		}
-
-		mainPlayerRgn.CreateRectRgn(0, clientRect.Height() / 10 * 8, clientRect.Width() / 4, clientRect.Height());
-		mainPlayerRgn.GetRgnBox(&mainPlayerRect);
-
-		rollingButtonRgn.CreateRectRgn(clientRect.Width() / 4 * 3, clientRect.Height() / 10 * 8, clientRect.Width(), clientRect.Height());
-		rollingButtonRgn.GetRgnBox(&rollingButtonRect);
-
-		for (int i = 0; i < 3; i++) {
-			pCasino[i] = { 0,clientRect.Height() / 10 * (2 * i + 1) };
-			pCasino[i + 3] = { clientRect.Width() / 4 * 3,clientRect.Height() / 10 * (2 * i + 1) };
-		}
-
-		rgnCheck = FALSE;
+	for (int i = 0; i < 4; i++) {
+		playerRgn[i].CreateRectRgn(clientRect.Width() / 4 * i, 0, clientRect.Width() / 4 * (i + 1), clientRect.Height() / 10);
+	}
+	for (int i = 0; i < 4; i++) {
+		playerRgn[i].GetRgnBox(playerRect[i]);
+	}
+	mainPlayerRgn.CreateRectRgn(0, clientRect.Height() / 10 * 8, clientRect.Width() / 4, clientRect.Height());
+	mainPlayerRgn.GetRgnBox(&mainPlayerRect);
+	rollingButtonRgn.CreateRectRgn(clientRect.Width() / 4 * 3, clientRect.Height() / 10 * 8, clientRect.Width(), clientRect.Height());
+	rollingButtonRgn.GetRgnBox(&rollingButtonRect);
+	for (int i = 0; i < 3; i++) {
+		pCasino[i] = { 0,clientRect.Height() / 10 * (2 * i + 1) };
+		pCasino[i + 3] = { clientRect.Width() / 4 * 3,clientRect.Height() / 10 * (2 * i + 1) };
 	}
 
 	// set color
@@ -247,8 +248,8 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 		}
 		*/
 
-		pDC->FillRgn(&mainPlayerRgn, &orangeBrush);
-		pDC->SetBkColor(orangeRGB);
+		//pDC->FillRgn(&mainPlayerRgn, &orangeBrush);
+		//pDC->SetBkColor(orangeRGB);
 		pDC->DrawText(pDoc->player2->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 	}
 	else if (pDoc->round == 2) {
@@ -276,8 +277,8 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 		}
 		*/
 
-		pDC->FillRgn(&mainPlayerRgn, &greenBrush);
-		pDC->SetBkColor(greenRGB);
+		//pDC->FillRgn(&mainPlayerRgn, &greenBrush);
+		//pDC->SetBkColor(greenRGB);
 		pDC->DrawText(pDoc->player3->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 	}
 	else if (pDoc->round == 3) {
@@ -305,8 +306,8 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 		}
 		*/
 
-		pDC->FillRgn(&mainPlayerRgn, &blueBrush);
-		pDC->SetBkColor(blueRGB);
+		//pDC->FillRgn(&mainPlayerRgn, &blueBrush);
+		//pDC->SetBkColor(blueRGB);
 		pDC->DrawText(pDoc->player4->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 	}
 	else if (pDoc->round == 4) {
@@ -334,8 +335,8 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 		}
 		*/
 
-		pDC->FillRgn(&mainPlayerRgn, &purpleBrush);
-		pDC->SetBkColor(purpleRGB);
+		//pDC->FillRgn(&mainPlayerRgn, &purpleBrush);
+		//pDC->SetBkColor(purpleRGB);
 		pDC->DrawText(pDoc->player5->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 	}
 
@@ -400,6 +401,9 @@ void CLasVegasMFCView::OnLButtonDown(UINT nFlags, CPoint point)
 	// TODO: Add your message handler code here and/or call default
 	CLasVegasMFCDoc *pDoc = (CLasVegasMFCDoc *)GetDocument();
 
+	CRgn rollingButtonRgn;
+	rollingButtonRgn.CreateRectRgn(clientRect.Width() / 4 * 3, clientRect.Height() / 10 * 8, clientRect.Width(), clientRect.Height());
+
 	CDiceDlg dlg;
 	if (rollingButtonRgn.PtInRegion(point) && (pDoc -> round == 0)) {
 		dlg.name = pDoc->player1->name;
@@ -448,6 +452,9 @@ void CLasVegasMFCView::OnLButtonDown(UINT nFlags, CPoint point)
 void CLasVegasMFCView::OnMouseMove(UINT nFlags, CPoint point)
 {
 	// TODO: Add your message handler code here and/or call default
+	CRgn rollingButtonRgn;
+	rollingButtonRgn.CreateRectRgn(clientRect.Width() / 4 * 3, clientRect.Height() / 10 * 8, clientRect.Width(), clientRect.Height());
+
 	if (rollingButtonRgn.PtInRegion(point) && (rollingButtonCheck == FALSE)) {
 		rollingButtonCheck = TRUE;
 		DrawBlueText();
@@ -465,6 +472,11 @@ void CLasVegasMFCView::DrawBlueText()
 {
 	CDC* pDC;
 	pDC = GetWindowDC();
+
+	CRgn rollingButtonRgn;
+	rollingButtonRgn.CreateRectRgn(clientRect.Width() / 4 * 3, clientRect.Height() / 10 * 8, clientRect.Width(), clientRect.Height());
+	CRect rollingButtonRect;
+	rollingButtonRgn.GetRgnBox(&rollingButtonRect);
 
 	if (rollingButtonCheck == FALSE) {
 		pDC->SetTextColor(RGB(0, 0, 0));

@@ -88,37 +88,37 @@ BOOL CLasVegasMFCDoc::OnNewDocument()
 
 	while (TRUE) {
 		casino1->addBill(billDeck->getBill());
-		if (casino1->getTotalPrice() > 50000) {
+		if (casino1->getTotalPrice() >= 50000) {
 			break;
 		}
 	}
 	while (TRUE) {
 		casino2->addBill(billDeck->getBill());
-		if (casino2->getTotalPrice() > 50000) {
+		if (casino2->getTotalPrice() >= 50000) {
 			break;
 		}
 	}
 	while (TRUE) {
 		casino3->addBill(billDeck->getBill());
-		if (casino3->getTotalPrice() > 50000) {
+		if (casino3->getTotalPrice() >= 50000) {
 			break;
 		}
 	}
 	while (TRUE) {
 		casino4->addBill(billDeck->getBill());
-		if (casino4->getTotalPrice() > 50000) {
+		if (casino4->getTotalPrice() >= 50000) {
 			break;
 		}
 	}
 	while (TRUE) {
 		casino5->addBill(billDeck->getBill());
-		if (casino5->getTotalPrice() > 50000) {
+		if (casino5->getTotalPrice() >= 50000) {
 			break;
 		}
 	}
 	while (TRUE) {
 		casino6->addBill(billDeck->getBill());
-		if (casino6->getTotalPrice() > 50000) {
+		if (casino6->getTotalPrice() >= 50000) {
 			break;
 		}
 	}

@@ -23,15 +23,17 @@ public:
 // Attributes
 public:
 	CLasVegasMFCDoc* GetDocument() const;
-	BOOL rgnCheck;
+	/*
 	CRgn playerRgn[4];
 	CRect playerRect[4];
 	CRgn mainPlayerRgn;
 	CRect mainPlayerRect;
 	CRgn rollingButtonRgn;
 	CRect rollingButtonRect;
+	*/
 	CPoint pCasino[6];
 	BOOL rollingButtonCheck;
+	CRect clientRect;
 
 // Operations
 public:
