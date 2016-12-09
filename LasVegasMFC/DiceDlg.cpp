@@ -35,6 +35,13 @@ void CDiceDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_PIC6, m_pic6);
 	DDX_Control(pDX, IDC_PIC7, m_pic7);
 	DDX_Control(pDX, IDC_PIC8, m_pic8);
+	DDX_Control(pDX, IDC_BUTTON1, m_b1);
+	DDX_Control(pDX, IDC_BUTTON2, m_b2);
+	DDX_Control(pDX, IDC_BUTTON3, m_b3);
+	DDX_Control(pDX, IDC_BUTTON4, m_b4);
+	DDX_Control(pDX, IDC_BUTTON5, m_b5);
+	DDX_Control(pDX, IDC_BUTTON6, m_b6);
+	DDX_Control(pDX, IDC_BUTTON7, m_br);
 }
 
 
@@ -1728,6 +1735,79 @@ void CDiceDlg::OnBnClickedButton7()
 		}
 
 	}
+	
+	if ((id == 1)) {
+		if (pDoc->player1->num1 != 0)
+			m_b1.EnableWindow(TRUE);
+		if (pDoc->player1->num2 != 0)
+			m_b2.EnableWindow(TRUE);
+		if (pDoc->player1->num3 != 0)
+			m_b3.EnableWindow(TRUE);
+		if (pDoc->player1->num4 != 0)
+			m_b4.EnableWindow(TRUE);
+		if (pDoc->player1->num5 != 0)
+			m_b5.EnableWindow(TRUE);
+		if (pDoc->player1->num6 != 0)
+			m_b6.EnableWindow(TRUE);
+	}
+	else if ((id == 2)) {
+		if (pDoc->player2->num1 != 0)
+			m_b1.EnableWindow(TRUE);
+		if (pDoc->player2->num2 != 0)
+			m_b2.EnableWindow(TRUE);
+		if (pDoc->player2->num3 != 0)
+			m_b3.EnableWindow(TRUE);
+		if (pDoc->player2->num4 != 0)
+			m_b4.EnableWindow(TRUE);
+		if (pDoc->player2->num5 != 0)
+			m_b5.EnableWindow(TRUE);
+		if (pDoc->player2->num6 != 0)
+			m_b6.EnableWindow(TRUE);
+	}
+	else if ((id == 3)) {
+		if (pDoc->player3->num1 != 0)
+			m_b1.EnableWindow(TRUE);
+		if (pDoc->player3->num2 != 0)
+			m_b2.EnableWindow(TRUE);
+		if (pDoc->player3->num3 != 0)
+			m_b3.EnableWindow(TRUE);
+		if (pDoc->player3->num4 != 0)
+			m_b4.EnableWindow(TRUE);
+		if (pDoc->player3->num5 != 0)
+			m_b5.EnableWindow(TRUE);
+		if (pDoc->player3->num6 != 0)
+			m_b6.EnableWindow(TRUE);
+	}
+	else if ((id == 4)) {
+		if (pDoc->player4->num1 != 0)
+			m_b1.EnableWindow(TRUE);
+		if (pDoc->player4->num2 != 0)
+			m_b2.EnableWindow(TRUE);
+		if (pDoc->player4->num3 != 0)
+			m_b3.EnableWindow(TRUE);
+		if (pDoc->player4->num4 != 0)
+			m_b4.EnableWindow(TRUE);
+		if (pDoc->player4->num5 != 0)
+			m_b5.EnableWindow(TRUE);
+		if (pDoc->player4->num6 != 0)
+			m_b6.EnableWindow(TRUE);
+	}
+	else if ((id == 5)) {
+		if (pDoc->player5->num1 != 0)
+			m_b1.EnableWindow(TRUE);
+		if (pDoc->player5->num2 != 0)
+			m_b2.EnableWindow(TRUE);
+		if (pDoc->player5->num3 != 0)
+			m_b3.EnableWindow(TRUE);
+		if (pDoc->player5->num4 != 0)
+			m_b4.EnableWindow(TRUE);
+		if (pDoc->player5->num5 != 0)
+			m_b5.EnableWindow(TRUE);
+		if (pDoc->player5->num6 != 0)
+			m_b6.EnableWindow(TRUE);
+	}
+
+	m_br.EnableWindow(FALSE);
 	m_b = TRUE;
 }
 

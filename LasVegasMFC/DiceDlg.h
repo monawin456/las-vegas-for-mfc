@@ -96,4 +96,11 @@ public:
 	BITMAP bmpinfo;
 	
 	afx_msg void OnPaint();
+	CButton m_b1;
+	CButton m_b2;
+	CButton m_b3;
+	CButton m_b4;
+	CButton m_b5;
+	CButton m_b6;
+	CButton m_br;
 };
