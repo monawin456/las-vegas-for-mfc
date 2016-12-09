@@ -7,6 +7,7 @@
 
 void Casino::setTotalPrice()
 {
+	totalPrice = 0;
 	for (int i = 0; i < 5; i++) {
 		totalPrice = totalPrice + bill[i].getPrice();
 	}

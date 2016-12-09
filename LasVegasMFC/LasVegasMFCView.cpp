@@ -29,6 +29,7 @@ IMPLEMENT_DYNCREATE(CLasVegasMFCView, CFormView)
 
 BEGIN_MESSAGE_MAP(CLasVegasMFCView, CFormView)
 	ON_WM_LBUTTONDOWN()
+	ON_WM_MOUSEMOVE()
 END_MESSAGE_MAP()
 
 // CLasVegasMFCView construction/destruction
@@ -63,8 +64,13 @@ void CLasVegasMFCView::OnInitialUpdate()
 	GetParentFrame()->RecalcLayout();
 	//ResizeParentToFit();
 
-	srand((unsigned)time(NULL));
 	rgnCheck = TRUE;
+	rollingButtonCheck = FALSE;
+
+	for (int i = 0; i < 6; i++) {
+		pCasino[i].x = 0;
+		pCasino[i].y = 0;
+	}
 
 }
 
@@ -183,6 +189,10 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 	pDC->SelectStockObject(NULL_PEN);
 	pDC->Rectangle(0, 0, clientRect.Width(), clientRect.Height());
 
+	CRgn topBoxRgn;
+	topBoxRgn.CreateRectRgn(0, 0, clientRect.Width(), clientRect.Height() / 10);
+	pDC->FrameRgn(&topBoxRgn, &blackBrush, 1, 1);
+
 	if (pDoc->round == 0) {
 		/*
 		pDC->FillRgn(&playerRgn[0], &orangeBrush);
@@ -208,8 +218,8 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 		}
 		*/
 
-		pDC->FillRgn(&mainPlayerRgn, &redBrush);
-		pDC->SetBkColor(redRGB);
+		//pDC->FillRgn(&mainPlayerRgn, &redBrush);
+		//pDC->SetBkColor(redRGB);
 		pDC->DrawText(pDoc->player1->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 	}
 	else if (pDoc->round == 1) {
@@ -333,7 +343,7 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 
 	pDC->FillRgn(&rollingButtonRgn, &whiteBrush);
 	pDC->SetBkColor(whiteRGB);
-	pDC->DrawText(_T("Rolling!!"), rollingButtonRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+	DrawBlueText();
 	pDC->FrameRgn(&rollingButtonRgn, &blackBrush, 1, 1);
 
 	// draw casino
@@ -391,7 +401,6 @@ void CLasVegasMFCView::OnLButtonDown(UINT nFlags, CPoint point)
 	CLasVegasMFCDoc *pDoc = (CLasVegasMFCDoc *)GetDocument();
 
 	CDiceDlg dlg;
-
 	if (rollingButtonRgn.PtInRegion(point) && (pDoc -> round == 0)) {
 		dlg.name = pDoc->player1->name;
 		dlg.pDoc = pDoc;
@@ -433,4 +442,36 @@ void CLasVegasMFCView::OnLButtonDown(UINT nFlags, CPoint point)
 	}
 
 	//CFormView::OnLButtonDown(nFlags, point);
+}
+
+
+void CLasVegasMFCView::OnMouseMove(UINT nFlags, CPoint point)
+{
+	// TODO: Add your message handler code here and/or call default
+	if (rollingButtonRgn.PtInRegion(point) && (rollingButtonCheck == FALSE)) {
+		rollingButtonCheck = TRUE;
+		DrawBlueText();
+	}
+	else if (!(rollingButtonRgn.PtInRegion(point)) && (rollingButtonCheck == TRUE)) {
+		rollingButtonCheck = FALSE;
+		DrawBlueText();
+	}
+
+	//CFormView::OnMouseMove(nFlags, point);
+}
+
+
+void CLasVegasMFCView::DrawBlueText()
+{
+	CDC* pDC;
+	pDC = GetWindowDC();
+
+	if (rollingButtonCheck == FALSE) {
+		pDC->SetTextColor(RGB(0, 0, 0));
+		pDC->DrawText(_T("Rolling!!"), rollingButtonRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+	}
+	else if (rollingButtonCheck == TRUE) {
+		pDC->SetTextColor(RGB(0, 0, 255));
+		pDC->DrawText(_T("Rolling!!"), rollingButtonRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+	}
 }

@@ -46,6 +46,8 @@ BOOL CLasVegasMFCDoc::OnNewDocument()
 		return FALSE;
 
 	// TODO: add reinitialization code here
+	srand((unsigned)time(NULL));
+
 	player1 = new Player(1);
 	player2 = new Player(2);
 	player3 = new Player(3);

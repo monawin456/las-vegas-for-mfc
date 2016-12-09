@@ -52,8 +52,8 @@ void Player::GetDice(CString & k_dice)
 		else if( dice[i].GetDice() == 6)
 			num6++;
 	}
-	k_dice.Format(_T("1 : %d, 2 : %d, 3 : %d, 4 : %d, 5 : %d, 6 : %d"),
-		num1, num2, num3, num4, num5, num6);
+	//k_dice.Format(_T("1 : %d,      2 : %d,      3 : %d,      4 : %d,      5 : %d,      6 : %d"), num1, num2, num3, num4, num5, num6);
+	k_dice.Format(_T("1(%d)      2(%d)      3(%d)      4(%d)      5(%d)      6(%d)"), num1, num2, num3, num4, num5, num6);
 }
 
 void Player::RoundDice()

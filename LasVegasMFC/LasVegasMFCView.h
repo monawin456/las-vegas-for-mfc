@@ -31,6 +31,7 @@ public:
 	CRgn rollingButtonRgn;
 	CRect rollingButtonRect;
 	CPoint pCasino[6];
+	BOOL rollingButtonCheck;
 
 // Operations
 public:
@@ -58,6 +59,8 @@ protected:
 	virtual void OnDraw(CDC* /*pDC*/);
 public:
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
+	void DrawBlueText();
 };
 
 #ifndef _DEBUG  // debug version in LasVegasMFCView.cpp
