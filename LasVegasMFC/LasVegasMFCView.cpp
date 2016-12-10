@@ -165,40 +165,74 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 
 	// set round
 	pDoc->round = (pDoc->round + 1) % 5;
-	while (!(pDoc->player1->diceEmpty() || pDoc->player2->diceEmpty() || pDoc->player3->diceEmpty() || pDoc->player4->diceEmpty() || pDoc->player5->diceEmpty())) {
+	if (pDoc->round == 0) {
 		if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
 			pDoc->round = (pDoc->round + 1) % 5;
 		}
-		else {
-			break;
-		}
-
 		if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
 			pDoc->round = (pDoc->round + 1) % 5;
 		}
-		else {
-			break;
-		}
-
 		if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
 			pDoc->round = (pDoc->round + 1) % 5;
 		}
-		else {
-			break;
-		}
-
 		if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
 			pDoc->round = (pDoc->round + 1) % 5;
 		}
-		else {
-			break;
+	}
+	else if (pDoc->round == 1) {
+		if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
 		}
-
+		if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
+		}
+		if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
+		}
 		if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
 			pDoc->round = (pDoc->round + 1) % 5;
 		}
-		else {
-			break;
+	}
+	else if (pDoc->round == 2) {
+		if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
+		}
+		if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
+		}
+		if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
+		}
+		if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
+		}
+	}
+	else if (pDoc->round == 3) {
+		if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
+		}
+		if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
+		}
+		if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
+		}
+		if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
+		}
+	}
+	else if (pDoc->round == 4) {
+		if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
+		}
+		if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
+		}
+		if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
+		}
+		if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
 		}
 	}
 
