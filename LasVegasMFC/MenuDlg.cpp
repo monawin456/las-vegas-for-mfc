@@ -5,7 +5,11 @@
 #include "LasVegasMFC.h"
 #include "MenuDlg.h"
 #include "afxdialogex.h"
-
+#include "PNameDlg.h"
+#include "LasVegasMFCDoc.h"
+#include "Player.h"
+#include "Casino.h"
+#include "Bill.h"
 
 // CMenuDlg 대화 상자입니다.
 
@@ -60,9 +64,36 @@ BOOL CMenuDlg::OnInitDialog()
 void CMenuDlg::OnBnClickedButton2()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	CFileDialog dlg(TRUE);
-	if (dlg.DoModal() == IDOK)
+	static TCHAR BASED_CODE szFilter[] = _T("LasVegas Save (*.lvs)|*.lvs|")_T("All Files (*.*)|*.*||");
+	CFileDialog dlg(TRUE, _T("lvs"), _T("LasVegas Save"), OFN_HIDEREADONLY, szFilter);
+	if (IDOK == dlg.DoModal())
 	{
+		CString strPathName = dlg.GetPathName();
+		CFile fp;
+		CFileException e;
+		if (!fp.Open(strPathName, CFile::modeRead, &e)) {
+			e.ReportError();
+			return;
+		}
+
+		CArchive ar(&fp, CArchive::load);
+		
+		ar >> pDoc->round;
+
+		pDoc->player1->Serialize(ar);
+		pDoc->player2->Serialize(ar);
+		pDoc->player3->Serialize(ar);
+		pDoc->player4->Serialize(ar);
+		pDoc->player5->Serialize(ar);
+
+		pDoc->casino1->Serialize(ar);
+		pDoc->casino2->Serialize(ar);
+		pDoc->casino3->Serialize(ar);
+		pDoc->casino4->Serialize(ar);
+		pDoc->casino5->Serialize(ar);
+		pDoc->casino6->Serialize(ar);
+
+		pDoc->billDeck->Serialize(ar);
 	}
 }
 
@@ -70,9 +101,44 @@ void CMenuDlg::OnBnClickedButton2()
 void CMenuDlg::OnBnClickedButton1()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
-	CFileDialog dlg(FALSE);
-	if (dlg.DoModal() == IDOK)
+	static TCHAR BASED_CODE szFilter[] = _T("LasVegas Save (*.lvs)|*.lvs|")_T("All Files (*.*)|*.*||");
+	CFileDialog dlg(FALSE, _T("lvs"), _T("LasVegas Save"), OFN_HIDEREADONLY, szFilter);
+	if (IDOK == dlg.DoModal())
 	{
+		CString strPathName = dlg.GetPathName();
+
+		CFile fp;
+		CFileException e;
+		if (!fp.Open(strPathName, CFile::modeWrite | CFile::modeCreate, &e)) {
+			e.ReportError();
+			return;
+		}
+
+		CArchive ar(&fp, CArchive::store);
+
+		if (pDoc->round == 0) {
+			pDoc->round = 4;
+		}
+		else {
+			pDoc->round = pDoc->round - 1;
+		}
+
+		ar << (pDoc->round);
+
+		pDoc->player1->Serialize(ar);
+		pDoc->player2->Serialize(ar);
+		pDoc->player3->Serialize(ar);
+		pDoc->player4->Serialize(ar);
+		pDoc->player5->Serialize(ar);
+
+		pDoc->casino1->Serialize(ar);
+		pDoc->casino2->Serialize(ar);
+		pDoc->casino3->Serialize(ar);
+		pDoc->casino4->Serialize(ar);
+		pDoc->casino5->Serialize(ar);
+		pDoc->casino6->Serialize(ar);
+
+		pDoc->billDeck->Serialize(ar);
 	}
 }
 
@@ -81,4 +147,28 @@ void CMenuDlg::OnBnClickedExit()
 {
 	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
 	exit(0);
+}
+
+
+void CMenuDlg::OnOK()
+{
+	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
+	
+	CPNameDlg dlg;
+
+	dlg.m_str1 = pDoc->player1->name;
+	dlg.m_str2 = pDoc->player2->name;
+	dlg.m_str3 = pDoc->player3->name;
+	dlg.m_str4 = pDoc->player4->name;
+	dlg.m_str5 = pDoc->player5->name;
+	
+	if (IDOK == dlg.DoModal()) {
+		pDoc->player1->name = dlg.m_str1;
+		pDoc->player2->name = dlg.m_str2;
+		pDoc->player3->name = dlg.m_str3;
+		pDoc->player4->name = dlg.m_str4;
+		pDoc->player5->name = dlg.m_str5;
+	}
+
+	CDialog::OnOK();
 }

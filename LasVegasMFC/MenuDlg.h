@@ -3,6 +3,7 @@
 
 
 // CMenuDlg 대화 상자입니다.
+class CLasVegasMFCDoc;
 
 class CMenuDlg : public CDialog
 {
@@ -23,8 +24,10 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	CStatic m_str;
+	CLasVegasMFCDoc * pDoc;
 	virtual BOOL OnInitDialog();
 	afx_msg void OnBnClickedButton2();
 	afx_msg void OnBnClickedButton1();
 	afx_msg void OnBnClickedExit();
+	virtual void OnOK();
 };

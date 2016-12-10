@@ -73,8 +73,9 @@ void CLasVegasMFCView::OnInitialUpdate()
 	}
 
 	GetClientRect(&clientRect);
-	
+
 	CMenuDlg dlg;
+	dlg.pDoc = GetDocument();
 	dlg.DoModal();
 
 }
@@ -646,6 +647,10 @@ void CLasVegasMFCView::OnLButtonDown(UINT nFlags, CPoint point)
 		pDoc->player5->reset();
 
 		Invalidate();
+
+		CMenuDlg dlg;
+		dlg.pDoc = GetDocument();
+		dlg.DoModal();
 	}
 
 	//CFormView::OnLButtonDown(nFlags, point);

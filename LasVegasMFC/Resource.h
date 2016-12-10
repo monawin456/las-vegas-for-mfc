@@ -68,6 +68,7 @@
 #define ID_YELLOW_DICE_6                367
 #define ID_YELLOW_DICE_Q                368
 #define IDD_MENU                        371
+#define IDD_PNAMEDLG                    373
 #define IDC_STR                         1000
 #define IDC_BUTTON1                     1001
 #define IDC_BUTTON2                     1002
@@ -86,14 +87,19 @@
 #define IDC_PIC7                        1015
 #define IDC_PIC8                        1016
 #define IDEXIT                          1017
+#define IDC_EDIT1                       1018
+#define IDC_EDIT2                       1019
+#define IDC_EDIT3                       1020
+#define IDC_EDIT4                       1021
+#define IDC_EDIT5                       1022
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        373
+#define _APS_NEXT_RESOURCE_VALUE        375
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1018
+#define _APS_NEXT_CONTROL_VALUE         1019
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif
