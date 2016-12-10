@@ -5,12 +5,15 @@ class Dice;
 class Bill;
 class Casino;
 
-class Player
+class Player : public CObject
 {
+	DECLARE_SERIAL(Player)
 public:
+	Player() {}
 	Player(int);
 	~Player();
 
+	void Serialize(CArchive& ar);
 	int GetMoney();	//현재 돈
 	void AddMoney(int);	//라운드마다 돈 추가
 	void GetDice(CString&);		//현재 다이스 상황

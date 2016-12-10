@@ -6,8 +6,23 @@ Bill::Bill(int _price)
 	price = _price;
 }
 
+Bill::Bill(const Bill &bill)
+{
+	price = bill.price;
+}
+
 Bill::~Bill()
 {
+}
+
+IMPLEMENT_SERIAL(Bill, CObject, 1)
+void Bill::Serialize(CArchive & ar)
+{
+	CObject::Serialize(ar);
+	if (ar.IsStoring())
+		ar << price;
+	else
+		ar >> price;
 }
 
 void Bill::setPrice(int _price)
@@ -25,6 +40,12 @@ int Bill::getPrice()
 	return price;
 }
 
+Bill & Bill::operator=(const Bill &bill)
+{
+	price = bill.price;
+	return *this;
+}
+
 BillDeck::BillDeck()
 {
 	bill = new Bill[90];
@@ -34,6 +55,18 @@ BillDeck::BillDeck()
 BillDeck::~BillDeck()
 {
 	delete[]bill;
+}
+
+IMPLEMENT_SERIAL(BillDeck, CObject, 1)
+void BillDeck::Serialize(CArchive & ar)
+{
+	CObject::Serialize(ar);
+	if (ar.IsStoring())
+		ar << top;
+	else
+		ar >> top;
+	for (int i = 0; i < 90; i++)
+		bill[i].Serialize(ar);
 }
 
 void BillDeck::resetDeck()

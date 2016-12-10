@@ -7,9 +7,24 @@ Dice::Dice()
 	num = -1;
 }
 
+Dice::Dice(const Dice & dice)
+{
+	num = dice.num;
+}
+
 
 Dice::~Dice()
 {
+}
+
+IMPLEMENT_SERIAL(Dice, CObject, 1)
+void Dice::Serialize(CArchive & ar)
+{
+	CObject::Serialize(ar);
+	if (ar.IsStoring())
+		ar << num;
+	else
+		ar >> num;
 }
 
 void Dice::RollDice()

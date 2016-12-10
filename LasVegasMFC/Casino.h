@@ -4,8 +4,9 @@ class Bill;
 class Dice;
 class CLasVegasMFCDoc;
 
-class Casino
+class Casino : public CObject
 {
+	DECLARE_SERIAL(Casino)
 private:
 	Bill *bill;
 	int billNum;
@@ -29,9 +30,10 @@ private:
 
 public:
 	CLasVegasMFCDoc *pDoc;
-
 	Casino();
 	~Casino();
+
+	void Serialize(CArchive& ar);
 	void resetCasino();
 	void addBill(Bill _bill);
 	void addDice(int player, Dice dice);

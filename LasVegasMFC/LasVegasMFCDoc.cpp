@@ -85,7 +85,7 @@ BOOL CLasVegasMFCDoc::OnNewDocument()
 	casino6->pDoc = this;
 
 	billDeck->resetDeck();
-
+	
 	while (TRUE) {
 		casino1->addBill(billDeck->getBill());
 		if (casino1->getTotalPrice() >= 50000) {
@@ -137,10 +137,49 @@ void CLasVegasMFCDoc::Serialize(CArchive& ar)
 	if (ar.IsStoring())
 	{
 		// TODO: add storing code here
+		if (round == 0) {
+			round = 4;
+		}
+		else {
+			round = round - 1;
+		}
+
+		ar << (round);
+
+		player1->Serialize(ar);
+		player2->Serialize(ar);
+		player3->Serialize(ar);
+		player4->Serialize(ar);
+		player5->Serialize(ar);
+
+		casino1->Serialize(ar);
+		casino2->Serialize(ar);
+		casino3->Serialize(ar);
+		casino4->Serialize(ar);
+		casino5->Serialize(ar);
+		casino6->Serialize(ar);
+
+		billDeck->Serialize(ar);
 	}
 	else
 	{
 		// TODO: add loading code here
+		ar >> round;
+
+		player1->Serialize(ar);
+		player2->Serialize(ar);
+		player3->Serialize(ar);
+		player4->Serialize(ar);
+		player5->Serialize(ar);
+
+		casino1->Serialize(ar);
+		casino2->Serialize(ar);
+		casino3->Serialize(ar);
+		casino4->Serialize(ar);
+		casino5->Serialize(ar);
+		casino6->Serialize(ar);
+
+		billDeck->Serialize(ar);
 	}
 }
 

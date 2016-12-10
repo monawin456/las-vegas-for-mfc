@@ -44,6 +44,32 @@ Casino::~Casino()
 	delete[]player5Dice;
 }
 
+IMPLEMENT_SERIAL(Casino, CObject, 1)
+void Casino::Serialize(CArchive & ar)
+{
+	CObject::Serialize(ar);
+
+
+	if (ar.IsStoring())
+		ar << billNum << totalPrice << diceNum <<
+		player1DiceNum << player2DiceNum << player3DiceNum <<
+		player4DiceNum << player5DiceNum;
+	else
+		ar >> billNum >> totalPrice >> diceNum >>
+		player1DiceNum >> player2DiceNum >> player3DiceNum >>
+		player4DiceNum >> player5DiceNum;
+
+	player1Dice->Serialize(ar);
+	player2Dice->Serialize(ar);
+	player3Dice->Serialize(ar);
+	player4Dice->Serialize(ar);
+	player5Dice->Serialize(ar);
+
+	for(int i = 0; i< 5; i++)
+		bill[i].Serialize(ar);
+	
+}
+
 void Casino::resetCasino()
 {
 	delete[]bill;
@@ -68,6 +94,7 @@ void Casino::resetCasino()
 	player4DiceNum = 0;
 	player5Dice = new Dice[diceNum];
 	player5DiceNum = 0;
+
 }
 
 void Casino::addBill(Bill _bill)

@@ -17,6 +17,22 @@ Player::~Player()
 {
 	delete[] dice;
 }
+IMPLEMENT_SERIAL(Player, CObject, 1)
+
+void Player::Serialize(CArchive & ar)
+{
+	CObject::Serialize(ar);
+	if (ar.IsStoring())
+	{
+		ar << money << id << name << num_dice;
+	}
+	else
+	{
+		ar >> money >> id >> name >> num_dice;
+	}
+	for (int i = 0; i < num_dice; i++)
+		dice[i].Serialize(ar);
+}
 
 int Player::GetMoney()
 {
