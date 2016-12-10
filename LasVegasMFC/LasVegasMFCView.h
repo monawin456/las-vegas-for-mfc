@@ -63,6 +63,7 @@ public:
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	void DrawBlueText();
+	afx_msg void OnViewMenu();
 };
 
 #ifndef _DEBUG  // debug version in LasVegasMFCView.cpp

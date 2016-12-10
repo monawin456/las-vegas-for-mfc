@@ -30,4 +30,10 @@ public:
 	afx_msg void OnBnClickedButton1();
 	afx_msg void OnBnClickedExit();
 	virtual void OnOK();
+	afx_msg void OnBnClickedButton5();
+	CButton m_startbutton;
+	afx_msg void OnBnClickedStart();
+	CButton m_save;
+	CButton m_continue;
+	afx_msg void OnBnClickedContinue();
 };

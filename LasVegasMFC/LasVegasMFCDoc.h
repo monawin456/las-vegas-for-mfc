@@ -33,6 +33,9 @@ public:
 
 	int round;
 
+	BOOL continueCheck;
+	BOOL saveCheck;
+
 // Operations
 public:
 

@@ -69,7 +69,7 @@ BOOL CLasVegasMFCDoc::OnNewDocument()
 	player4->name = _T("Player4");
 	player5->name = _T("Player5");
 
-	round = -1;
+	round = 0;
 
 	casino1->resetCasino();
 	casino1->pDoc = this;
@@ -122,6 +122,9 @@ BOOL CLasVegasMFCDoc::OnNewDocument()
 			break;
 		}
 	}
+
+	continueCheck = FALSE;
+	saveCheck = FALSE;
 	// (SDI documents will reuse this document)
 
 	return TRUE;
@@ -137,13 +140,6 @@ void CLasVegasMFCDoc::Serialize(CArchive& ar)
 	if (ar.IsStoring())
 	{
 		// TODO: add storing code here
-		if (round == 0) {
-			round = 4;
-		}
-		else {
-			round = round - 1;
-		}
-
 		ar << (round);
 
 		player1->Serialize(ar);

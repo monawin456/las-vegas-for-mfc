@@ -31,6 +31,7 @@ IMPLEMENT_DYNCREATE(CLasVegasMFCView, CFormView)
 BEGIN_MESSAGE_MAP(CLasVegasMFCView, CFormView)
 	ON_WM_LBUTTONDOWN()
 	ON_WM_MOUSEMOVE()
+	ON_COMMAND(ID_VIEW_MENU, &CLasVegasMFCView::OnViewMenu)
 END_MESSAGE_MAP()
 
 // CLasVegasMFCView construction/destruction
@@ -78,6 +79,8 @@ void CLasVegasMFCView::OnInitialUpdate()
 	dlg.pDoc = GetDocument();
 	dlg.DoModal();
 
+	GetDocument()->continueCheck = TRUE;
+	GetDocument()->saveCheck = TRUE;
 }
 
 
@@ -168,7 +171,7 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 	CBrush purpleBrush;
 	purpleBrush.CreateSolidBrush(purpleRGB);
 
-	// set round
+	/* // set round
 	pDoc->round = (pDoc->round + 1) % 5;
 	if (pDoc->round == 0) {
 		if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
@@ -240,6 +243,7 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 			pDoc->round = (pDoc->round + 1) % 5;
 		}
 	}
+	*/
 
 	// Game Start
 	pDC->SelectStockObject(NULL_PEN);
@@ -448,14 +452,6 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 	pDC->TextOut(pCasino[5].x + 40, pCasino[5].y + 60, pDoc->casino6->getCasinoInfo2());
 	pDC->TextOut(pCasino[5].x + 100, pCasino[5].y + 90, pDoc->casino6->getCasinoInfo3());
 
-	/*
-	pDC->SelectStockObject(BLACK_PEN);
-	POINT bottomLine1[] = { { clientRect.Width() / 4, clientRect.Height() / 10 * 8 + 10}, {clientRect.Width() / 4 * 3, clientRect.Height() / 10 * 8 + 10 } };
-	pDC->Polyline(bottomLine1, 2);
-	POINT bottomLine2[] = { { clientRect.Width() / 4, clientRect.Height() - 2 },{ clientRect.Width() / 4 * 3, clientRect.Height() - 2 } };
-	pDC->Polyline(bottomLine2, 2);
-	*/
-
 	pDC->SelectStockObject(BLACK_PEN);
 
 	CRgn playerInfoMoney1Rgn;
@@ -471,8 +467,6 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 	playerInfoMoney2Rgn.GetRgnBox(playerInfoMoney2Rect);
 	pDC->Rectangle(&playerInfoMoney2Rect);
 	CString playerInfoMoneyStr;
-	//playerInfoMoneyStr.Format(_T("%d $"), pDoc->player1->GetMoney());
-	//pDC->DrawText(playerInfoMoneyStr, &playerInfoMoney2Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 
 	CRgn playerInfoDice1Rgn;
 	playerInfoDice1Rgn.CreateRectRgn(clientRect.Width() / 2, clientRect.Height() / 10 * 8 + 10, clientRect.Width() / 4 * 3, clientRect.Height() / 10 * 9);
@@ -487,8 +481,6 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 	playerInfoDice2Rgn.GetRgnBox(playerInfoDice2Rect);
 	pDC->Rectangle(&playerInfoDice2Rect);
 	CString playerInfoDiceStr;
-	//playerInfoDiceStr.Format(_T("%d"), pDoc->player1->GetDiceNum());
-	//pDC->DrawText(playerInfoDiceStr, &playerInfoDice2Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 
 	if (pDoc -> round == 0) {
 		playerInfoMoneyStr.Format(_T("%d $"), pDoc->player1->GetMoney());
@@ -538,6 +530,79 @@ void CLasVegasMFCView::OnLButtonDown(UINT nFlags, CPoint point)
 		dlg.pDoc = pDoc;
 		dlg.id = 1;
 		dlg.DoModal();
+
+		pDoc->round = (pDoc->round + 1) % 5;
+		if (pDoc->round == 0) {
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 1) {
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 2) {
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 3) {
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 4) {
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+
 		Invalidate();
 	}
 	else if (rollingButtonRgn.PtInRegion(point) && (pDoc->round == 1)) {
@@ -545,6 +610,79 @@ void CLasVegasMFCView::OnLButtonDown(UINT nFlags, CPoint point)
 		dlg.pDoc = pDoc;
 		dlg.id = 2;
 		dlg.DoModal();
+
+		pDoc->round = (pDoc->round + 1) % 5;
+		if (pDoc->round == 0) {
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 1) {
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 2) {
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 3) {
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 4) {
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+
 		Invalidate();
 	}
 	else if (rollingButtonRgn.PtInRegion(point) && (pDoc->round == 2)) {
@@ -552,6 +690,79 @@ void CLasVegasMFCView::OnLButtonDown(UINT nFlags, CPoint point)
 		dlg.pDoc = pDoc;
 		dlg.id = 3;
 		dlg.DoModal();
+
+		pDoc->round = (pDoc->round + 1) % 5;
+		if (pDoc->round == 0) {
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 1) {
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 2) {
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 3) {
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 4) {
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+
 		Invalidate();
 	}
 	else if (rollingButtonRgn.PtInRegion(point) && (pDoc->round == 3)) {
@@ -559,6 +770,79 @@ void CLasVegasMFCView::OnLButtonDown(UINT nFlags, CPoint point)
 		dlg.pDoc = pDoc;
 		dlg.id = 4;
 		dlg.DoModal();
+
+		pDoc->round = (pDoc->round + 1) % 5;
+		if (pDoc->round == 0) {
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 1) {
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 2) {
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 3) {
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 4) {
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+
 		Invalidate();
 	}
 	else if (rollingButtonRgn.PtInRegion(point) && (pDoc->round == 4)) {
@@ -566,13 +850,83 @@ void CLasVegasMFCView::OnLButtonDown(UINT nFlags, CPoint point)
 		dlg.pDoc = pDoc;
 		dlg.id = 5;
 		dlg.DoModal();
+
+		pDoc->round = (pDoc->round + 1) % 5;
+		if (pDoc->round == 0) {
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 1) {
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 2) {
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 3) {
+			if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+		else if (pDoc->round == 4) {
+			if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+			if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+				pDoc->round = (pDoc->round + 1) % 5;
+			}
+		}
+
 		Invalidate();
 	}
 
 	if (!(pDoc->player1->diceEmpty() || pDoc->player2->diceEmpty() || pDoc->player3->diceEmpty() || pDoc->player4->diceEmpty() || pDoc->player5->diceEmpty())) {
-		
-		AfxMessageBox(_T("End"));
-
 		pDoc->casino1->ClosingCasino();
 		pDoc->casino2->ClosingCasino();
 		pDoc->casino3->ClosingCasino();
@@ -580,77 +934,14 @@ void CLasVegasMFCView::OnLButtonDown(UINT nFlags, CPoint point)
 		pDoc->casino5->ClosingCasino();
 		pDoc->casino6->ClosingCasino();
 
-		/*
-		CString str;
-		str.Format(_T("1(%d), 2(%d), 3(%d), 4(%d), 5(%d)"), pDoc->player1->GetMoney(),
-			pDoc->player2->GetMoney(), pDoc->player3->GetMoney(), pDoc->player4->GetMoney(),
-			pDoc->player5->GetMoney());
-		AfxMessageBox(str);
-		*/
+		AfxMessageBox(_T("End"));
 
-		pDoc -> round = -1;
-
-		pDoc->casino1->resetCasino();
-		pDoc->casino2->resetCasino();
-		pDoc->casino3->resetCasino();
-		pDoc->casino4->resetCasino();
-		pDoc->casino5->resetCasino();
-		pDoc->casino6->resetCasino();
-
-		while (TRUE) {
-			pDoc->casino1->addBill(pDoc->billDeck->getBill());
-			if (pDoc->casino1->getTotalPrice() >= 50000) {
-				break;
-			}
-		}
-		while (TRUE) {
-			pDoc->casino2->addBill(pDoc->billDeck->getBill());
-			if (pDoc->casino2->getTotalPrice() >= 50000) {
-				break;
-			}
-		}
-		while (TRUE) {
-			pDoc->casino3->addBill(pDoc->billDeck->getBill());
-			if (pDoc->casino3->getTotalPrice() >= 50000) {
-				break;
-			}
-		}
-		while (TRUE) {
-			pDoc->casino4->addBill(pDoc->billDeck->getBill());
-			if (pDoc->casino4->getTotalPrice() >= 50000) {
-				break;
-			}
-		}
-		while (TRUE) {
-			pDoc->casino5->addBill(pDoc->billDeck->getBill());
-			if (pDoc->casino5->getTotalPrice() >= 50000) {
-				break;
-			}
-		}
-		while (TRUE) {
-			pDoc->casino6->addBill(pDoc->billDeck->getBill());
-			if (pDoc->casino6->getTotalPrice() >= 50000) {
-				break;
-			}
-		}
-		/*
-		pDoc->player1->RoundDice();
-		pDoc->player2->RoundDice();
-		pDoc->player3->RoundDice();
-		pDoc->player4->RoundDice();
-		pDoc->player5->RoundDice();
-		*/
-		pDoc->player1->reset();
-		pDoc->player2->reset();
-		pDoc->player3->reset();
-		pDoc->player4->reset();
-		pDoc->player5->reset();
-
-		Invalidate();
-
+		pDoc->continueCheck = FALSE;
 		CMenuDlg dlg;
 		dlg.pDoc = GetDocument();
 		dlg.DoModal();
+		pDoc->continueCheck = TRUE;
+		Invalidate();
 	}
 
 	//CFormView::OnLButtonDown(nFlags, point);
@@ -694,4 +985,15 @@ void CLasVegasMFCView::DrawBlueText()
 		pDC->SetTextColor(RGB(0, 0, 255));
 		pDC->DrawText(_T("Rolling!!"), rollingButtonRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 	}
+}
+
+
+void CLasVegasMFCView::OnViewMenu()
+{
+	// TODO: Add your command handler code here
+	CMenuDlg dlg;
+	dlg.pDoc = GetDocument();
+	dlg.DoModal();
+	CLasVegasMFCDoc *pDoc = (CLasVegasMFCDoc *)GetDocument();
+	Invalidate();
 }

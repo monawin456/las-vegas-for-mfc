@@ -17,7 +17,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// 한국어(대한민국) resources
+// Korean (Korea) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
 LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
@@ -66,17 +66,17 @@ END
 // Dialog
 //
 
-IDD_DICEDLG DIALOGEX 0, 0, 333, 178
+IDD_DICEDLG DIALOGEX 0, 0, 335, 178
 STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_SYSMENU
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    PUSHBUTTON      "Rolling",IDC_BUTTON7,138,156,50,14
+    PUSHBUTTON      "Rolling",IDC_BUTTON7,138,157,50,14
     PUSHBUTTON      "1",IDC_BUTTON1,6,138,50,14,WS_DISABLED
     PUSHBUTTON      "2",IDC_BUTTON2,60,138,50,14,WS_DISABLED
     PUSHBUTTON      "3",IDC_BUTTON3,114,138,50,14,WS_DISABLED
     PUSHBUTTON      "4",IDC_BUTTON4,168,138,50,14,WS_DISABLED
     PUSHBUTTON      "5",IDC_BUTTON5,222,138,50,14,WS_DISABLED
-    PUSHBUTTON      "6",IDC_BUTTON6,276,138,50,14,WS_DISABLED
+    PUSHBUTTON      "6",IDC_BUTTON6,278,138,50,14,WS_DISABLED
     CTEXT           "",IDC_STR,114,6,114,12
     CTEXT           "",IDC_STR2,48,120,246,18
     CONTROL         "",IDC_PIC1,"Static",SS_BLACKFRAME,36,24,48,42
@@ -89,26 +89,25 @@ BEGIN
     CONTROL         "",IDC_PIC8,"Static",SS_BLACKFRAME,258,72,48,42
 END
 
-IDD_MENU DIALOGEX 0, 0, 309, 178
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Menu"
+IDD_MENU DIALOGEX 0, 0, 312, 175
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_BORDER | WS_SYSMENU
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "New Start",IDOK,125,49,50,14
-    PUSHBUTTON      "Exit",IDEXIT,125,142,50,14
-    PUSHBUTTON      "Save",IDC_BUTTON1,125,90,50,14
-    PUSHBUTTON      "Load",IDC_BUTTON2,125,74,50,14
-    PUSHBUTTON      "Rank",IDC_BUTTON3,125,105,50,14
-    PUSHBUTTON      "Help",IDC_BUTTON4,125,121,50,14
-    CTEXT           "",IDC_STR,49,22,205,18
+    DEFPUSHBUTTON   "New Game",ID_START,126,60,60,14
+    PUSHBUTTON      "Exit",IDEXIT,126,150,60,14
+    PUSHBUTTON      "Save",IDC_BUTTON1,120,114,36,14,WS_DISABLED
+    PUSHBUTTON      "Load",IDC_BUTTON2,156,114,36,14
+    PUSHBUTTON      "Continue",ID_CONTINUE,126,78,60,14,WS_DISABLED
+    PUSHBUTTON      "Help",IDC_BUTTON4,126,132,60,14
+    CTEXT           "",IDC_STR,114,30,84,12
+    PUSHBUTTON      "Change Name",IDC_BUTTON5,126,96,60,14
 END
 
-IDD_PNAMEDLG DIALOGEX 0, 0, 237, 189
-STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "PlayerSetName"
+IDD_PNAMEDLG DIALOGEX 0, 0, 242, 190
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_BORDER | WS_SYSMENU
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "확인",IDOK,93,161,50,14
+    DEFPUSHBUTTON   "Ok",IDOK,54,162,48,14
     EDITTEXT        IDC_EDIT1,42,18,156,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT2,42,78,158,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT3,42,48,158,12,ES_AUTOHSCROLL
@@ -119,6 +118,7 @@ BEGIN
     LTEXT           "Player3",IDC_STATIC,42,66,25,8
     LTEXT           "Player4",IDC_STATIC,42,96,25,8
     LTEXT           "Player5",IDC_STATIC,42,126,25,8
+    PUSHBUTTON      "Cancel",IDCANCEL,138,162,48,14
 END
 
 
@@ -133,7 +133,7 @@ BEGIN
     IDD_DICEDLG, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 326
+        RIGHTMARGIN, 328
         TOPMARGIN, 7
         BOTTOMMARGIN, 171
     END
@@ -141,17 +141,17 @@ BEGIN
     IDD_MENU, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 302
+        RIGHTMARGIN, 305
         TOPMARGIN, 7
-        BOTTOMMARGIN, 171
+        BOTTOMMARGIN, 168
     END
 
     IDD_PNAMEDLG, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 230
+        RIGHTMARGIN, 235
         TOPMARGIN, 7
-        BOTTOMMARGIN, 182
+        BOTTOMMARGIN, 183
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -305,12 +305,12 @@ ID_WHITE_DICE_Q         BITMAP                  "res\\LVRes\\WHITE_DICE_Q.bmp"
 
 IDB_PNG1                PNG                     "res\\LVRes\\white_dice_1.png"
 
-#endif    // 한국어(대한민국) resources
+#endif    // Korean (Korea) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// 영어(미국) resources
+// English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
@@ -408,11 +408,8 @@ BEGIN
     BUTTON      ID_FILE_OPEN
     BUTTON      ID_FILE_SAVE
     SEPARATOR
-    BUTTON      ID_EDIT_CUT
-    BUTTON      ID_EDIT_COPY
-    BUTTON      ID_EDIT_PASTE
+    BUTTON      ID_VIEW_MENU
     SEPARATOR
-    BUTTON      ID_FILE_PRINT
     BUTTON      ID_APP_ABOUT
 END
 
@@ -431,22 +428,15 @@ BEGIN
         MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
         MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
         MENUITEM SEPARATOR
-        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1
         MENUITEM SEPARATOR
         MENUITEM "E&xit",                       ID_APP_EXIT
-    END
-    POPUP "&Edit"
-    BEGIN
-        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
-        MENUITEM SEPARATOR
-        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
-        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
-        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
     END
     POPUP "&View"
     BEGIN
         MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
         MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM "Menu",                        ID_VIEW_MENU
     END
     POPUP "&Help"
     BEGIN
@@ -632,7 +622,7 @@ BEGIN
     AFX_IDS_SCTASKLIST      "Activate Task List"
 END
 
-#endif    // 영어(미국) resources
+#endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
