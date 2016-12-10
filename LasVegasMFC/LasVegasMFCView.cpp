@@ -178,6 +178,9 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 		if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
 			pDoc->round = (pDoc->round + 1) % 5;
 		}
+		if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
+		}
 	}
 	else if (pDoc->round == 1) {
 		if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
@@ -190,6 +193,9 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 			pDoc->round = (pDoc->round + 1) % 5;
 		}
 		if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
+		}
+		if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
 			pDoc->round = (pDoc->round + 1) % 5;
 		}
 	}
@@ -206,6 +212,9 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 		if ((pDoc->round == 0) && !(pDoc->player1->diceEmpty())) {
 			pDoc->round = (pDoc->round + 1) % 5;
 		}
+		if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
+		}
 	}
 	else if (pDoc->round == 3) {
 		if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
@@ -220,6 +229,9 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 		if ((pDoc->round == 1) && !(pDoc->player2->diceEmpty())) {
 			pDoc->round = (pDoc->round + 1) % 5;
 		}
+		if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
+		}
 	}
 	else if (pDoc->round == 4) {
 		if ((pDoc->round == 4) && !(pDoc->player5->diceEmpty())) {
@@ -232,6 +244,9 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 			pDoc->round = (pDoc->round + 1) % 5;
 		}
 		if ((pDoc->round == 2) && !(pDoc->player3->diceEmpty())) {
+			pDoc->round = (pDoc->round + 1) % 5;
+		}
+		if ((pDoc->round == 3) && !(pDoc->player4->diceEmpty())) {
 			pDoc->round = (pDoc->round + 1) % 5;
 		}
 	}
