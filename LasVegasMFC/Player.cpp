@@ -9,6 +9,7 @@ Player::Player(int m_id)
 	id = m_id;
 	money = 0;
 	num_dice = 8;
+	numberOfDice = 8;
 	dice = new Dice[8];
 }
 
@@ -24,11 +25,11 @@ void Player::Serialize(CArchive & ar)
 	CObject::Serialize(ar);
 	if (ar.IsStoring())
 	{
-		ar << money << id << name << num_dice;
+		ar << money << id << name << num_dice << numberOfDice;
 	}
 	else
 	{
-		ar >> money >> id >> name >> num_dice;
+		ar >> money >> id >> name >> num_dice >> numberOfDice;
 	}
 	for (int i = 0; i < num_dice; i++)
 		dice[i].Serialize(ar);
@@ -93,12 +94,35 @@ void Player::Selection(int n, Casino *cas)
 		{
 			cas->addDice(id, dice[i]);
 			dice[i].setDice(0);
+			numberOfDice--;
 		}
 }
 
 int Player::GetDice(int i)
 {
 	return dice[i].GetDice();
+}
+
+int Player::GetDiceNum()
+{
+	return numberOfDice;
+}
+
+void Player::reset()
+{
+	delete[] dice;
+
+	num1 = 0;
+	num2 = 0;
+	num3 = 0;
+	num4 = 0;
+	num5 = 0;
+	num6 = 0;
+
+	dice = new Dice[8];
+
+	num_dice = 8;
+	numberOfDice = 8;
 }
 
 bool Player::diceEmpty()

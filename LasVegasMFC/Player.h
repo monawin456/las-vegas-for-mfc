@@ -23,6 +23,8 @@ public:
 	void Selection(int, Casino*);  //카지노에 주사위 투자
 	int GetDice(int i);
 
+	int GetDiceNum();
+	void reset();
 	bool diceEmpty();
 	
 	CString name;
@@ -35,5 +37,6 @@ private:	//특성
 	int id;
 	int money;
 	int num_dice;
+	int numberOfDice;
 	
 };

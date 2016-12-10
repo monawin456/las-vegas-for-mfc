@@ -442,6 +442,79 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 	pDC->TextOut(pCasino[5].x + 100, pCasino[5].y + 30, pDoc->casino6->getCasinoInfo1());
 	pDC->TextOut(pCasino[5].x + 40, pCasino[5].y + 60, pDoc->casino6->getCasinoInfo2());
 	pDC->TextOut(pCasino[5].x + 100, pCasino[5].y + 90, pDoc->casino6->getCasinoInfo3());
+
+	/*
+	pDC->SelectStockObject(BLACK_PEN);
+	POINT bottomLine1[] = { { clientRect.Width() / 4, clientRect.Height() / 10 * 8 + 10}, {clientRect.Width() / 4 * 3, clientRect.Height() / 10 * 8 + 10 } };
+	pDC->Polyline(bottomLine1, 2);
+	POINT bottomLine2[] = { { clientRect.Width() / 4, clientRect.Height() - 2 },{ clientRect.Width() / 4 * 3, clientRect.Height() - 2 } };
+	pDC->Polyline(bottomLine2, 2);
+	*/
+
+	pDC->SelectStockObject(BLACK_PEN);
+
+	CRgn playerInfoMoney1Rgn;
+	playerInfoMoney1Rgn.CreateRectRgn(clientRect.Width() / 4, clientRect.Height() / 10 * 8 + 10, clientRect.Width() / 2, clientRect.Height() / 10 * 9);
+	CRect playerInfoMoney1Rect;
+	playerInfoMoney1Rgn.GetRgnBox(playerInfoMoney1Rect);
+	pDC->Rectangle(&playerInfoMoney1Rect);
+	pDC->DrawText(_T("Money"), &playerInfoMoney1Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+
+	CRgn playerInfoMoney2Rgn;
+	playerInfoMoney2Rgn.CreateRectRgn(clientRect.Width() / 4, clientRect.Height() / 10 * 9, clientRect.Width() / 2, clientRect.Height());
+	CRect playerInfoMoney2Rect;
+	playerInfoMoney2Rgn.GetRgnBox(playerInfoMoney2Rect);
+	pDC->Rectangle(&playerInfoMoney2Rect);
+	CString playerInfoMoneyStr;
+	//playerInfoMoneyStr.Format(_T("%d $"), pDoc->player1->GetMoney());
+	//pDC->DrawText(playerInfoMoneyStr, &playerInfoMoney2Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+
+	CRgn playerInfoDice1Rgn;
+	playerInfoDice1Rgn.CreateRectRgn(clientRect.Width() / 2, clientRect.Height() / 10 * 8 + 10, clientRect.Width() / 4 * 3, clientRect.Height() / 10 * 9);
+	CRect playerInfoDice1Rect;
+	playerInfoDice1Rgn.GetRgnBox(playerInfoDice1Rect);
+	pDC->Rectangle(&playerInfoDice1Rect);
+	pDC->DrawText(_T("Number of Dice"), &playerInfoDice1Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+
+	CRgn playerInfoDice2Rgn;
+	playerInfoDice2Rgn.CreateRectRgn(clientRect.Width() / 2, clientRect.Height() / 10 * 9, clientRect.Width() / 4 * 3, clientRect.Height());
+	CRect playerInfoDice2Rect;
+	playerInfoDice2Rgn.GetRgnBox(playerInfoDice2Rect);
+	pDC->Rectangle(&playerInfoDice2Rect);
+	CString playerInfoDiceStr;
+	//playerInfoDiceStr.Format(_T("%d"), pDoc->player1->GetDiceNum());
+	//pDC->DrawText(playerInfoDiceStr, &playerInfoDice2Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+
+	if (pDoc -> round == 0) {
+		playerInfoMoneyStr.Format(_T("%d $"), pDoc->player1->GetMoney());
+		pDC->DrawText(playerInfoMoneyStr, &playerInfoMoney2Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		playerInfoDiceStr.Format(_T("%d"), pDoc->player1->GetDiceNum());
+		pDC->DrawText(playerInfoDiceStr, &playerInfoDice2Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+	}
+	else if (pDoc -> round == 1) {
+		playerInfoMoneyStr.Format(_T("%d $"), pDoc->player2->GetMoney());
+		pDC->DrawText(playerInfoMoneyStr, &playerInfoMoney2Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		playerInfoDiceStr.Format(_T("%d"), pDoc->player2->GetDiceNum());
+		pDC->DrawText(playerInfoDiceStr, &playerInfoDice2Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+	}
+	else if (pDoc->round == 2) {
+		playerInfoMoneyStr.Format(_T("%d $"), pDoc->player3->GetMoney());
+		pDC->DrawText(playerInfoMoneyStr, &playerInfoMoney2Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		playerInfoDiceStr.Format(_T("%d"), pDoc->player3->GetDiceNum());
+		pDC->DrawText(playerInfoDiceStr, &playerInfoDice2Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+	}
+	else if (pDoc->round == 3) {
+		playerInfoMoneyStr.Format(_T("%d $"), pDoc->player4->GetMoney());
+		pDC->DrawText(playerInfoMoneyStr, &playerInfoMoney2Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		playerInfoDiceStr.Format(_T("%d"), pDoc->player4->GetDiceNum());
+		pDC->DrawText(playerInfoDiceStr, &playerInfoDice2Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+	}
+	else if (pDoc->round == 4) {
+		playerInfoMoneyStr.Format(_T("%d $"), pDoc->player5->GetMoney());
+		pDC->DrawText(playerInfoMoneyStr, &playerInfoMoney2Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		playerInfoDiceStr.Format(_T("%d"), pDoc->player5->GetDiceNum());
+		pDC->DrawText(playerInfoDiceStr, &playerInfoDice2Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+	}
 	//AfxMessageBox(pDoc->casino1->getCasinoInfo());
 }
 
@@ -493,6 +566,8 @@ void CLasVegasMFCView::OnLButtonDown(UINT nFlags, CPoint point)
 
 	if (!(pDoc->player1->diceEmpty() || pDoc->player2->diceEmpty() || pDoc->player3->diceEmpty() || pDoc->player4->diceEmpty() || pDoc->player5->diceEmpty())) {
 		
+		AfxMessageBox(_T("End"));
+
 		pDoc->casino1->ClosingCasino();
 		pDoc->casino2->ClosingCasino();
 		pDoc->casino3->ClosingCasino();
@@ -500,11 +575,13 @@ void CLasVegasMFCView::OnLButtonDown(UINT nFlags, CPoint point)
 		pDoc->casino5->ClosingCasino();
 		pDoc->casino6->ClosingCasino();
 
+		/*
 		CString str;
 		str.Format(_T("1(%d), 2(%d), 3(%d), 4(%d), 5(%d)"), pDoc->player1->GetMoney(),
 			pDoc->player2->GetMoney(), pDoc->player3->GetMoney(), pDoc->player4->GetMoney(),
 			pDoc->player5->GetMoney());
 		AfxMessageBox(str);
+		*/
 
 		pDoc -> round = -1;
 
@@ -551,11 +628,18 @@ void CLasVegasMFCView::OnLButtonDown(UINT nFlags, CPoint point)
 				break;
 			}
 		}
+		/*
 		pDoc->player1->RoundDice();
 		pDoc->player2->RoundDice();
 		pDoc->player3->RoundDice();
 		pDoc->player4->RoundDice();
 		pDoc->player5->RoundDice();
+		*/
+		pDoc->player1->reset();
+		pDoc->player2->reset();
+		pDoc->player3->reset();
+		pDoc->player4->reset();
+		pDoc->player5->reset();
 
 		Invalidate();
 	}
