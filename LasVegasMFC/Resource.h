@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ generated include file.
-// Used by LasVegasMFC.rc
+// Microsoft Visual C++에서 생성한 포함 파일입니다.
+// LasVegasMFC.rc에서 사용되고 있습니다.
 //
 #define kc                              3
 #define ID_WHITE_DICE_Q                 3
@@ -67,6 +67,7 @@
 #define ID_YELLOW_DICE_5                366
 #define ID_YELLOW_DICE_6                367
 #define ID_YELLOW_DICE_Q                368
+#define IDD_MENU                        371
 #define IDC_STR                         1000
 #define IDC_BUTTON1                     1001
 #define IDC_BUTTON2                     1002
@@ -84,14 +85,15 @@
 #define IDC_PIC6                        1014
 #define IDC_PIC7                        1015
 #define IDC_PIC8                        1016
+#define IDEXIT                          1017
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        371
+#define _APS_NEXT_RESOURCE_VALUE        373
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1017
+#define _APS_NEXT_CONTROL_VALUE         1018
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif

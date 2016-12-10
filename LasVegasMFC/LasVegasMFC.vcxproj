@@ -193,6 +193,7 @@
     <ClInclude Include="LasVegasMFCDoc.h" />
     <ClInclude Include="LasVegasMFCView.h" />
     <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="MenuDlg.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -207,6 +208,7 @@
     <ClCompile Include="LasVegasMFCDoc.cpp" />
     <ClCompile Include="LasVegasMFCView.cpp" />
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="MenuDlg.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

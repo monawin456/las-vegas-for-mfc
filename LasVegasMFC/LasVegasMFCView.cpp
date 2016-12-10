@@ -16,6 +16,7 @@
 #include "Bill.h"
 #include "Dice.h"
 #include "DiceDlg.h"
+#include "MenuDlg.h"
 
 
 #ifdef _DEBUG
@@ -72,6 +73,9 @@ void CLasVegasMFCView::OnInitialUpdate()
 	}
 
 	GetClientRect(&clientRect);
+	
+	CMenuDlg dlg;
+	dlg.DoModal();
 
 }
 
