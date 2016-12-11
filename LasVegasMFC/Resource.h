@@ -1,13 +1,14 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ generated include file.
-// Used by LasVegasMFC.rc
+// Microsoft Visual C++에서 생성한 포함 파일입니다.
+// LasVegasMFC.rc에서 사용되고 있습니다.
 //
 #define kc                              3
 #define ID_WHITE_DICE_Q                 3
 #define IDD_ABOUTBOX                    100
 #define IDP_OLE_INIT_FAILED             100
 #define IDD_LASVEGASMFC_FORM            101
-#define ID_INDICATOR_PLA                101
+#define ID_INDICATOR_MON                101
+#define ID_INDICATOR_DIC                102
 #define IDR_MAINFRAME                   128
 #define IDR_LasVegasMFCTYPE             130
 #define IDD_DICEDLG                     310
