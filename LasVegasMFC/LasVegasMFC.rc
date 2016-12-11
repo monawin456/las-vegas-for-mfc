@@ -17,7 +17,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// 한국어(대한민국) resources
+// Korean (Korea) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
 LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
@@ -331,12 +331,12 @@ ID_WHITE_DICE_Q         BITMAP                  "res\\LVRes\\WHITE_DICE_Q.bmp"
 
 IDB_PNG1                PNG                     "res\\LVRes\\white_dice_1.png"
 
-#endif    // 한국어(대한민국) resources
+#endif    // Korean (Korea) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// 영어(미국) resources
+// English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
@@ -525,7 +525,7 @@ END
 STRINGTABLE
 BEGIN
     IDP_OLE_INIT_FAILED     "OLE initialization failed.  Make sure that the OLE libraries are the correct version."
-    ID_INDICATOR_MON        "Money 9999999 $"
+    ID_INDICATOR_MON        "Money 9999999"
     ID_INDICATOR_DIC        "Num of Dice 9"
 END
 
@@ -634,7 +634,7 @@ BEGIN
     AFX_IDS_SCTASKLIST      "Activate Task List"
 END
 
-#endif    // 영어(미국) resources
+#endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
