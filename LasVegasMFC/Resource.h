@@ -103,13 +103,15 @@
 #define IDC_STR4                        1024
 #define IDC_STR5                        1025
 #define ID_VIEW_MENU                    32773
+#define ID_FUNCTION_                    32774
+#define ID_FUNCTION_ASD                 32775
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        377
-#define _APS_NEXT_COMMAND_VALUE         32774
+#define _APS_NEXT_COMMAND_VALUE         32776
 #define _APS_NEXT_CONTROL_VALUE         1026
 #define _APS_NEXT_SYMED_VALUE           310
 #endif

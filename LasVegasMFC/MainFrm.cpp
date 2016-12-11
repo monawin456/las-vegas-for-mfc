@@ -24,9 +24,9 @@ static UINT indicators[] =
 	ID_SEPARATOR,// status line indicator
 	ID_INDICATOR_MON,
 	ID_INDICATOR_DIC,
-	ID_INDICATOR_CAPS,
-	ID_INDICATOR_NUM,
-	ID_INDICATOR_SCRL,
+	//ID_INDICATOR_CAPS,
+	//ID_INDICATOR_NUM,
+	//ID_INDICATOR_SCRL,
 };
 
 // CMainFrame construction/destruction

@@ -34,6 +34,7 @@ public:
 	CPoint pCasino[6];
 	BOOL rollingButtonCheck;
 	CRect clientRect;
+	BOOL playerCheck[4];
 
 // Operations
 public:

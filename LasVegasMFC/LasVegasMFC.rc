@@ -430,9 +430,9 @@ IDR_LasVegasMFCTYPE     ICON                    "res\\LasVegasMFCDoc.ico"
 
 IDR_MAINFRAME TOOLBAR 16, 15
 BEGIN
-    BUTTON      ID_FILE_NEW
+    BUTTON      ID_VIEW_MENU
     SEPARATOR
-    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_APP_ABOUT
 END
 
 
@@ -526,7 +526,7 @@ STRINGTABLE
 BEGIN
     IDP_OLE_INIT_FAILED     "OLE initialization failed.  Make sure that the OLE libraries are the correct version."
     ID_INDICATOR_MON        "Money 9999999"
-    ID_INDICATOR_DIC        "Num of Dice 9"
+    ID_INDICATOR_DIC        "Num of Dice 9      "
 END
 
 STRINGTABLE
