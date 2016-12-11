@@ -70,6 +70,7 @@ BOOL CLasVegasMFCDoc::OnNewDocument()
 	player5->name = _T("Player5");
 
 	round = 0;
+	mainRound = 0;
 
 	casino1->resetCasino();
 	casino1->pDoc = this;
@@ -140,7 +141,7 @@ void CLasVegasMFCDoc::Serialize(CArchive& ar)
 	if (ar.IsStoring())
 	{
 		// TODO: add storing code here
-		ar << (round);
+		ar << round << mainRound;
 
 		player1->Serialize(ar);
 		player2->Serialize(ar);
@@ -160,7 +161,7 @@ void CLasVegasMFCDoc::Serialize(CArchive& ar)
 	else
 	{
 		// TODO: add loading code here
-		ar >> round;
+		ar >> round >> mainRound;
 
 		player1->Serialize(ar);
 		player2->Serialize(ar);

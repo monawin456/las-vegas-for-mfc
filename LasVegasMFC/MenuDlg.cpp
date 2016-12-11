@@ -91,7 +91,7 @@ void CMenuDlg::OnBnClickedButton2()
 
 		CArchive ar(&fp, CArchive::load);
 		
-		ar >> pDoc->round;
+		ar >> pDoc->round >> pDoc->mainRound;
 
 		pDoc->player1->Serialize(ar);
 		pDoc->player2->Serialize(ar);
@@ -131,7 +131,7 @@ void CMenuDlg::OnBnClickedButton1()
 
 		CArchive ar(&fp, CArchive::store);
 
-		ar << (pDoc->round);
+		ar << pDoc->round << pDoc->mainRound;
 
 		pDoc->player1->Serialize(ar);
 		pDoc->player2->Serialize(ar);
@@ -190,6 +190,7 @@ void CMenuDlg::OnBnClickedStart()
 {
 	// TODO: Add your control notification handler code here
 	pDoc->round = 0;
+	pDoc->mainRound = 0;
 
 	pDoc->casino1->resetCasino();
 	pDoc->casino2->resetCasino();

@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++에서 생성한 포함 파일입니다.
-// LasVegasMFC.rc에서 사용되고 있습니다.
+// Microsoft Visual C++ generated include file.
+// Used by LasVegasMFC.rc
 //
 #define kc                              3
 #define ID_WHITE_DICE_Q                 3
