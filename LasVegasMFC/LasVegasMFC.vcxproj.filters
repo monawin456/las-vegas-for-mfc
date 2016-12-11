@@ -63,6 +63,9 @@
     <ClInclude Include="ResultDlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ManualDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LasVegasMFC.cpp">
@@ -102,6 +105,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ResultDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ManualDlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -303,6 +309,30 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\LVRes\WHITE_DICE_Q.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVManual\manual_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVManual\manual_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVManual\manual_3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVManual\manual_4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVManual\manual_5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVManual\manual_6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVManual\manual_7.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\LVManual\manual_8.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

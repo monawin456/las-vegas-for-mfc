@@ -10,6 +10,7 @@
 #include "Player.h"
 #include "Casino.h"
 #include "Bill.h"
+#include "ManualDlg.h"
 
 // CMenuDlg 대화 상자입니다.
 
@@ -43,6 +44,7 @@ BEGIN_MESSAGE_MAP(CMenuDlg, CDialog)
 	ON_BN_CLICKED(ID_START, &CMenuDlg::OnBnClickedStart)
 	ON_BN_CLICKED(ID_CONTINUE, &CMenuDlg::OnBnClickedContinue)
 	ON_WM_SETCURSOR()
+	ON_BN_CLICKED(IDC_BUTTON4, &CMenuDlg::OnBnClickedButton4)
 END_MESSAGE_MAP()
 
 
@@ -262,4 +264,12 @@ BOOL CMenuDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
 	return TRUE;
 
 	//return CDialog::OnSetCursor(pWnd, nHitTest, message);
+}
+
+
+void CMenuDlg::OnBnClickedButton4()
+{
+	// TODO: Add your control notification handler code here
+	CManualDlg dlg;
+	dlg.DoModal();
 }

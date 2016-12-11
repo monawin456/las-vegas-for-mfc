@@ -118,63 +118,12 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 {
 	// TODO: 여기에 특수화된 코드를 추가 및/또는 기본 클래스를 호출합니다.
 	CLasVegasMFCDoc *pDoc = (CLasVegasMFCDoc *)GetDocument();
-	CMainFrame *mainFrm = (CMainFrame *)AfxGetMainWnd();
-
-	CRgn playerRgn[4];
-	CRect playerRect[4];
-	CRgn mainPlayerRgn;
-	CRect mainPlayerRect;
-	CRgn rollingButtonRgn;
-	CRect rollingButtonRect;
-
-	// init rgn
-	for (int i = 0; i < 4; i++) {
-		playerRgn[i].CreateRectRgn(clientRect.Width() / 4 * i, 0, clientRect.Width() / 4 * (i + 1), clientRect.Height() / 10);
-	}
-	for (int i = 0; i < 4; i++) {
-		playerRgn[i].GetRgnBox(playerRect[i]);
-	}
-	mainPlayerRgn.CreateRectRgn(0, clientRect.Height() / 10 * 8, clientRect.Width() / 4, clientRect.Height());
-	mainPlayerRgn.GetRgnBox(&mainPlayerRect);
-	rollingButtonRgn.CreateRectRgn(clientRect.Width() / 4 * 3, clientRect.Height() / 10 * 8, clientRect.Width(), clientRect.Height());
-	rollingButtonRgn.GetRgnBox(&rollingButtonRect);
-	for (int i = 0; i < 3; i++) {
-		pCasino[i] = { 0,clientRect.Height() / 10 * (2 * i + 1) };
-		pCasino[i + 3] = { clientRect.Width() / 4 * 3,clientRect.Height() / 10 * (2 * i + 1) };
-	}
 
 	// set color
-	COLORREF whiteRGB;
-	whiteRGB = RGB(255, 255, 255);
-	COLORREF blackRGB;
-	blackRGB = RGB(0, 0, 0);
-	COLORREF redRGB;
-	redRGB = RGB(255, 0, 0);
-	COLORREF orangeRGB;
-	orangeRGB = RGB(255, 175, 0);
-	COLORREF greenRGB;
-	greenRGB = RGB(0, 255, 0);
-	COLORREF blueRGB;
-	blueRGB = RGB(0, 0, 255);
-	COLORREF purpleRGB;
-	purpleRGB = RGB(255, 0, 255);
-
-	CBrush whiteBrush;
-	whiteBrush.CreateSolidBrush(whiteRGB);
 	CBrush blackBrush;
-	blackBrush.CreateSolidBrush(blackRGB);
-	CBrush redBrush;
-	redBrush.CreateSolidBrush(redRGB);
-	CBrush orangeBrush;
-	orangeBrush.CreateSolidBrush(orangeRGB);
-	CBrush greenBrush;
-	greenBrush.CreateSolidBrush(greenRGB);
-	CBrush blueBrush;
-	blueBrush.CreateSolidBrush(blueRGB);
-	CBrush purpleBrush;
-	purpleBrush.CreateSolidBrush(purpleRGB);
+	blackBrush.CreateSolidBrush(RGB(0, 0, 0));
 
-	// Game Start
+	// draw frame
 	pDC->SelectStockObject(NULL_PEN);
 	pDC->Rectangle(0, 0, clientRect.Width(), clientRect.Height());
 
@@ -182,307 +131,16 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 	topBoxRgn.CreateRectRgn(0, 0, clientRect.Width(), clientRect.Height() / 10);
 	pDC->FrameRgn(&topBoxRgn, &blackBrush, 1, 1);
 
-	CString statusStr[2];
-	mainFrm->m_wndStatusBar.SetPaneText(1, _T(""));
-	mainFrm->m_wndStatusBar.SetPaneText(2, _T(""));
-
-	if (pDoc->round == 0) {
-		pDC->SetBkColor(whiteRGB);
-
-		if (playerCheck[0] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player2->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[0] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player2->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player2->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player2->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-		if (playerCheck[1] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player3->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[1] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player3->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player3->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player3->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-		if (playerCheck[2] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player4->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[2] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player4->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player4->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player4->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-		if (playerCheck[3] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player5->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[3] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player5->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player5->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player5->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-
-		pDC->DrawText(pDoc->player1->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-	}
-	else if (pDoc->round == 1) {
-		pDC->SetBkColor(whiteRGB);
-
-		if (playerCheck[0] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[0] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player1->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player1->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-		if (playerCheck[1] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player3->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[1] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player3->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player3->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player3->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-		if (playerCheck[2] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player4->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[2] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player4->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player4->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player4->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-		if (playerCheck[3] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player5->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[3] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player5->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player5->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player5->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-
-		pDC->DrawText(pDoc->player2->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-	}
-	else if (pDoc->round == 2) {
-		pDC->SetBkColor(whiteRGB);
-
-		if (playerCheck[0] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[0] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player1->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player1->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-		if (playerCheck[1] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player2->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[1] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player2->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player2->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player2->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-		if (playerCheck[2] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player4->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[2] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player4->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player4->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player4->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-		if (playerCheck[3] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player5->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[3] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player5->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player5->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player5->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-
-		pDC->DrawText(pDoc->player3->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-	}
-	else if (pDoc->round == 3) {
-		pDC->SetBkColor(whiteRGB);
-
-		if (playerCheck[0] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[0] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player1->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player1->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-		if (playerCheck[1] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player2->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[1] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player2->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player2->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player2->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-		if (playerCheck[2] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player3->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[2] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player3->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player3->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player3->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-		if (playerCheck[3] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player5->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[3] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player5->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player5->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player5->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-
-		pDC->DrawText(pDoc->player4->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-	}
-	else if (pDoc->round == 4) {
-		pDC->SetBkColor(whiteRGB);
-
-		if (playerCheck[0] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[0] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player1->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player1->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-		if (playerCheck[1] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player2->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[1] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player2->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player2->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player2->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-		if (playerCheck[2] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player3->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[2] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player3->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player3->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player3->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-		if (playerCheck[3] == FALSE) {
-			pDC->SetTextColor(RGB(0, 0, 0));
-			pDC->DrawText(pDoc->player4->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-		}
-		else if (playerCheck[3] == TRUE) {
-			pDC->SetTextColor(RGB(0, 0, 255));
-			pDC->DrawText(pDoc->player4->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-			statusStr[0].Format(_T("Money %d"), pDoc->player4->GetMoney());
-			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player4->GetDiceNum());
-			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
-			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
-			pDC->SetTextColor(RGB(0, 0, 0));
-		}
-
-		pDC->DrawText(pDoc->player5->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-	}
-
+	CRgn mainPlayerRgn;
+	mainPlayerRgn.CreateRectRgn(0, clientRect.Height() / 10 * 8, clientRect.Width() / 4, clientRect.Height());
 	pDC->FrameRgn(&mainPlayerRgn, &blackBrush, 1, 1);
 
-	pDC->FillRgn(&rollingButtonRgn, &whiteBrush);
-	pDC->SetBkColor(whiteRGB);
-	DrawBlueText();
+	CRgn rollingButtonRgn;
+	rollingButtonRgn.CreateRectRgn(clientRect.Width() / 4 * 3, clientRect.Height() / 10 * 8, clientRect.Width(), clientRect.Height());
 	pDC->FrameRgn(&rollingButtonRgn, &blackBrush, 1, 1);
+
+	// draw text
+	DrawBlueText();
 
 	// draw casino
 	CBitmap casinoBmp[6];
@@ -530,6 +188,7 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 	pDC->TextOut(pCasino[5].x + 15, pCasino[5].y + 60, pDoc->casino6->getCasinoInfo2());
 	pDC->TextOut(pCasino[5].x + 240, pCasino[5].y + 90, pDoc->casino6->getCasinoInfo3());
 
+	// draw main player info
 	pDC->SelectStockObject(BLACK_PEN);
 
 	CRgn playerInfoMoney1Rgn;
@@ -544,7 +203,6 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 	CRect playerInfoMoney2Rect;
 	playerInfoMoney2Rgn.GetRgnBox(playerInfoMoney2Rect);
 	pDC->Rectangle(&playerInfoMoney2Rect);
-	CString playerInfoMoneyStr;
 
 	CRgn playerInfoDice1Rgn;
 	playerInfoDice1Rgn.CreateRectRgn(clientRect.Width() / 2, clientRect.Height() / 10 * 8 + 10, clientRect.Width() / 4 * 3, clientRect.Height() / 10 * 9);
@@ -558,6 +216,8 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 	CRect playerInfoDice2Rect;
 	playerInfoDice2Rgn.GetRgnBox(playerInfoDice2Rect);
 	pDC->Rectangle(&playerInfoDice2Rect);
+
+	CString playerInfoMoneyStr;
 	CString playerInfoDiceStr;
 
 	if (pDoc -> round == 0) {
@@ -591,6 +251,7 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 		pDC->DrawText(playerInfoDiceStr, &playerInfoDice2Rect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 	}
 
+	// draw round
 	CRgn roundRgn;
 	roundRgn.CreateRectRgn(clientRect.Width() / 2 - 60, clientRect.Height() / 12 * 2 - 30, clientRect.Width() / 2 + 60, clientRect.Height() / 12 * 2 + 20);
 	CRect roundRect;
@@ -599,7 +260,6 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 	CString roundStr;
 	roundStr.Format(_T("%d Round"), pDoc->mainRound + 1);
 	pDC->DrawText(roundStr, &roundRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-	//AfxMessageBox(pDoc->casino1->getCasinoInfo());
 }
 
 
@@ -1123,11 +783,11 @@ void CLasVegasMFCView::OnMouseMove(UINT nFlags, CPoint point)
 	for (int i = 0; i < 4; i++) {
 		if (playerRgn[i].PtInRegion(point) && playerCheck[i] == FALSE) {
 			playerCheck[i] = TRUE;
-			Invalidate();
+			DrawBlueText();
 		}
 		else if (!(playerRgn[i].PtInRegion(point)) && playerCheck[i] == TRUE) {
 			playerCheck[i] = FALSE;
-			Invalidate();
+			DrawBlueText();
 		}
 	}
 
@@ -1140,6 +800,7 @@ void CLasVegasMFCView::DrawBlueText()
 	CDC* pDC;
 	pDC = GetWindowDC();
 	CLasVegasMFCDoc *pDoc = (CLasVegasMFCDoc *)GetDocument();
+	CMainFrame *mainFrm = (CMainFrame *)AfxGetMainWnd();
 
 	CRgn rollingButtonRgn;
 	rollingButtonRgn.CreateRectRgn(clientRect.Width() / 4 * 3, clientRect.Height() / 10 * 8, clientRect.Width(), clientRect.Height());
@@ -1153,6 +814,306 @@ void CLasVegasMFCView::DrawBlueText()
 	else if (rollingButtonCheck == TRUE) {
 		pDC->SetTextColor(RGB(0, 0, 255));
 		pDC->DrawText(_T("Rolling!!"), rollingButtonRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+	}
+
+	// player area
+	CRgn playerRgn[4];
+	CRect playerRect[4];
+	CRgn mainPlayerRgn;
+	CRect mainPlayerRect;
+	for (int i = 0; i < 4; i++) {
+		playerRgn[i].CreateRectRgn(clientRect.Width() / 4 * i, 0, clientRect.Width() / 4 * (i + 1), clientRect.Height() / 10);
+	}
+	for (int i = 0; i < 4; i++) {
+		playerRgn[i].GetRgnBox(playerRect[i]);
+	}
+	mainPlayerRgn.CreateRectRgn(0, clientRect.Height() / 10 * 8, clientRect.Width() / 4, clientRect.Height());
+	mainPlayerRgn.GetRgnBox(&mainPlayerRect);
+	rollingButtonRgn.CreateRectRgn(clientRect.Width() / 4 * 3, clientRect.Height() / 10 * 8, clientRect.Width(), clientRect.Height());
+	rollingButtonRgn.GetRgnBox(&rollingButtonRect);
+	for (int i = 0; i < 3; i++) {
+		pCasino[i] = { 0,clientRect.Height() / 10 * (2 * i + 1) };
+		pCasino[i + 3] = { clientRect.Width() / 4 * 3,clientRect.Height() / 10 * (2 * i + 1) };
+	}
+
+	CString statusStr[2];
+	mainFrm->m_wndStatusBar.SetPaneText(1, _T(""));
+	mainFrm->m_wndStatusBar.SetPaneText(2, _T(""));
+
+	if (pDoc->round == 0) {
+		if (playerCheck[0] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player2->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[0] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player2->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player2->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player2->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		if (playerCheck[1] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player3->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[1] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player3->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player3->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player3->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		if (playerCheck[2] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player4->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[2] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player4->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player4->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player4->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		if (playerCheck[3] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player5->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[3] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player5->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player5->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player5->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		pDC->DrawText(pDoc->player1->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+	}
+	else if (pDoc->round == 1) {
+		if (playerCheck[0] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[0] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player1->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player1->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		if (playerCheck[1] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player3->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[1] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player3->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player3->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player3->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		if (playerCheck[2] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player4->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[2] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player4->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player4->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player4->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		if (playerCheck[3] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player5->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[3] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player5->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player5->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player5->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		pDC->DrawText(pDoc->player2->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+	}
+	else if (pDoc->round == 2) {
+		if (playerCheck[0] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[0] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player1->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player1->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		if (playerCheck[1] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player2->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[1] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player2->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player2->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player2->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		if (playerCheck[2] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player4->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[2] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player4->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player4->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player4->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		if (playerCheck[3] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player5->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[3] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player5->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player5->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player5->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		pDC->DrawText(pDoc->player3->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+	}
+	else if (pDoc->round == 3) {
+		if (playerCheck[0] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[0] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player1->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player1->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		if (playerCheck[1] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player2->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[1] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player2->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player2->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player2->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		if (playerCheck[2] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player3->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[2] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player3->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player3->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player3->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		if (playerCheck[3] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player5->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[3] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player5->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player5->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player5->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		pDC->DrawText(pDoc->player4->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+	}
+	else if (pDoc->round == 4) {
+		if (playerCheck[0] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[0] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player1->name, playerRect[0], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player1->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player1->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		if (playerCheck[1] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player2->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[1] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player2->name, playerRect[1], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player2->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player2->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		if (playerCheck[2] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player3->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[2] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player3->name, playerRect[2], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player3->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player3->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		if (playerCheck[3] == FALSE) {
+			pDC->SetTextColor(RGB(0, 0, 0));
+			pDC->DrawText(pDoc->player4->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+		}
+		else if (playerCheck[3] == TRUE) {
+			pDC->SetTextColor(RGB(0, 0, 255));
+			pDC->DrawText(pDoc->player4->name, playerRect[3], DT_CENTER | DT_VCENTER | DT_SINGLELINE);
+			statusStr[0].Format(_T("Money %d"), pDoc->player4->GetMoney());
+			statusStr[1].Format(_T("Num of Dice %d"), pDoc->player4->GetDiceNum());
+			mainFrm->m_wndStatusBar.SetPaneText(1, statusStr[0]);
+			mainFrm->m_wndStatusBar.SetPaneText(2, statusStr[1]);
+			pDC->SetTextColor(RGB(0, 0, 0));
+		}
+		pDC->DrawText(pDoc->player5->name, mainPlayerRect, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
 	}
 }
 

@@ -24,22 +24,31 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	int num;
+
 	CString name;
+
 	CLasVegasMFCDoc * pDoc;
+
 	BOOL m_b;
 	BOOL m_n;
+
 	int dice[8];
 	int id;
+
 	afx_msg void OnBnClickedButton2();
 	afx_msg void OnBnClickedButton1();
 	afx_msg void OnBnClickedButton3();
 	afx_msg void OnBnClickedButton4();
 	afx_msg void OnBnClickedButton5();
 	afx_msg void OnBnClickedButton6();
+
 	virtual BOOL OnInitDialog();
+
 	CStatic m_str;
 	CStatic m_str2;
+
 	afx_msg void OnBnClickedButton7();
+
 	CStatic m_pic1;
 	CStatic m_pic2;
 	CStatic m_pic3;
@@ -96,6 +105,7 @@ public:
 	BITMAP bmpinfo;
 	
 	afx_msg void OnPaint();
+
 	CButton m_b1;
 	CButton m_b2;
 	CButton m_b3;
@@ -103,5 +113,6 @@ public:
 	CButton m_b5;
 	CButton m_b6;
 	CButton m_br;
+
 	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 };

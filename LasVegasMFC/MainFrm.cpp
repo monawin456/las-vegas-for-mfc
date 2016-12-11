@@ -17,6 +17,7 @@ IMPLEMENT_DYNCREATE(CMainFrame, CFrameWnd)
 
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_CREATE()
+	ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -100,3 +101,15 @@ void CMainFrame::Dump(CDumpContext& dc) const
 
 // CMainFrame message handlers
 
+
+
+BOOL CMainFrame::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
+{
+	// TODO: Add your message handler code here and/or call default
+	if (nHitTest == HTCLIENT) {
+		::SetCursor(AfxGetApp()->LoadCursor(IDC_CURSOR1));
+	}
+	return TRUE;
+
+	//return CFrameWnd::OnSetCursor(pWnd, nHitTest, message);
+}

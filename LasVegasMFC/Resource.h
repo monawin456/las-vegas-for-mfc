@@ -73,6 +73,15 @@
 #define IDD_PNAMEDLG                    373
 #define IDD_RESULT                      375
 #define IDC_CURSOR1                     377
+#define IDB_MANUAL_1                    378
+#define IDB_MANUAL_2                    379
+#define IDB_MANUAL_3                    380
+#define IDB_MANUAL_4                    381
+#define IDB_MANUAL_5                    382
+#define IDB_MANUAL_6                    383
+#define IDB_MANUAL_7                    384
+#define IDB_MANUAL_8                    385
+#define IDD_MANUALDLG                   386
 #define IDC_STR                         1000
 #define IDC_BUTTON1                     1001
 #define IDC_BUTTON2                     1002
@@ -103,6 +112,10 @@
 #define IDC_STR3                        1023
 #define IDC_STR4                        1024
 #define IDC_STR5                        1025
+#define IDC_MANUAL_PIC                  1026
+#define IDC_MANUAL_LEFTBUTTON           1027
+#define IDC_MANUAL_RIGHTBUTTON          1028
+#define IDC_MANUAL_STR                  1029
 #define ID_VIEW_MENU                    32773
 #define ID_FUNCTION_                    32774
 #define ID_FUNCTION_ASD                 32775
@@ -111,9 +124,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        378
+#define _APS_NEXT_RESOURCE_VALUE        388
 #define _APS_NEXT_COMMAND_VALUE         32776
-#define _APS_NEXT_CONTROL_VALUE         1026
+#define _APS_NEXT_CONTROL_VALUE         1030
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif
