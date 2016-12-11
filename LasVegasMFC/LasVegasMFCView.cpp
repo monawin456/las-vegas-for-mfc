@@ -17,7 +17,7 @@
 #include "Dice.h"
 #include "DiceDlg.h"
 #include "MenuDlg.h"
-
+#include "ResultDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -935,6 +935,9 @@ void CLasVegasMFCView::OnLButtonDown(UINT nFlags, CPoint point)
 		pDoc->casino6->ClosingCasino();
 
 		AfxMessageBox(_T("End"));
+		CResultDlg r_dlg;
+		r_dlg.pDoc = GetDocument();
+		r_dlg.DoModal();
 
 		pDoc->continueCheck = FALSE;
 		CMenuDlg dlg;

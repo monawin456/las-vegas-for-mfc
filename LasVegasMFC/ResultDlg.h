@@ -3,7 +3,6 @@
 
 // CResultDlg 대화 상자입니다.
 class CLasVegasMFCDoc;
-
 class CResultDlg : public CDialog
 {
 	DECLARE_DYNAMIC(CResultDlg)

@@ -197,6 +197,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PNameDlg.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="ResultDlg.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -212,6 +213,7 @@
     <ClCompile Include="MenuDlg.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PNameDlg.cpp" />
+    <ClCompile Include="ResultDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

@@ -17,7 +17,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Korean (Korea) resources
+// 한국어(대한민국) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_KOR)
 LANGUAGE LANG_KOREAN, SUBLANG_DEFAULT
@@ -121,6 +121,19 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,138,162,48,14
 END
 
+IDD_RESULT DIALOGEX 0, 0, 264, 202
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_POPUP | WS_BORDER | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,104,181,50,14
+    CTEXT           "Result",IDC_STATIC,87,14,85,8
+    CTEXT           "",IDC_STR1,57,47,141,8
+    CTEXT           "",IDC_STR2,57,72,141,8
+    CTEXT           "",IDC_STR3,57,96,141,8
+    CTEXT           "",IDC_STR4,57,120,147,8
+    CTEXT           "",IDC_STR5,57,144,147,8
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -153,6 +166,14 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 183
     END
+
+    IDD_RESULT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 257
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 195
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -173,6 +194,11 @@ BEGIN
 END
 
 IDD_PNAMEDLG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_RESULT AFX_DIALOG_LAYOUT
 BEGIN
     0
 END
@@ -305,12 +331,12 @@ ID_WHITE_DICE_Q         BITMAP                  "res\\LVRes\\WHITE_DICE_Q.bmp"
 
 IDB_PNG1                PNG                     "res\\LVRes\\white_dice_1.png"
 
-#endif    // Korean (Korea) resources
+#endif    // 한국어(대한민국) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (United States) resources
+// 영어(미국) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
@@ -622,7 +648,7 @@ BEGIN
     AFX_IDS_SCTASKLIST      "Activate Task List"
 END
 
-#endif    // English (United States) resources
+#endif    // 영어(미국) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
