@@ -28,4 +28,5 @@ public:
 	CString m_str4;
 	CString m_str5;
 	virtual BOOL OnInitDialog();
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 };

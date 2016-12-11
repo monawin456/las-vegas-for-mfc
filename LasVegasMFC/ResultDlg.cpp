@@ -39,6 +39,7 @@ void CResultDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CResultDlg, CDialog)
+	ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
 
 
@@ -77,4 +78,16 @@ BOOL CResultDlg::OnInitDialog()
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // 예외: OCX 속성 페이지는 FALSE를 반환해야 합니다.
+}
+
+
+BOOL CResultDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
+{
+	// TODO: Add your message handler code here and/or call default
+	if (nHitTest == HTCLIENT) {
+		::SetCursor(AfxGetApp()->LoadCursor(IDC_CURSOR1));
+	}
+	return TRUE;
+
+	//return CDialog::OnSetCursor(pWnd, nHitTest, message);
 }

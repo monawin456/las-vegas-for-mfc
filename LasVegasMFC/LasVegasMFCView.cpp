@@ -33,6 +33,7 @@ BEGIN_MESSAGE_MAP(CLasVegasMFCView, CFormView)
 	ON_WM_LBUTTONDOWN()
 	ON_WM_MOUSEMOVE()
 	ON_COMMAND(ID_VIEW_MENU, &CLasVegasMFCView::OnViewMenu)
+	ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
 
 // CLasVegasMFCView construction/destruction
@@ -1164,4 +1165,16 @@ void CLasVegasMFCView::OnViewMenu()
 	dlg.DoModal();
 	CLasVegasMFCDoc *pDoc = (CLasVegasMFCDoc *)GetDocument();
 	Invalidate();
+}
+
+
+BOOL CLasVegasMFCView::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
+{
+	// TODO: Add your message handler code here and/or call default
+	if (nHitTest == HTCLIENT) {
+		::SetCursor(AfxGetApp()->LoadCursor(IDC_CURSOR1));
+	}
+	return TRUE;
+
+	//return CFormView::OnSetCursor(pWnd, nHitTest, message);
 }

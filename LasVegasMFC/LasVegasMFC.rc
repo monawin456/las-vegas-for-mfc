@@ -331,6 +331,14 @@ ID_WHITE_DICE_Q         BITMAP                  "res\\LVRes\\WHITE_DICE_Q.bmp"
 
 IDB_PNG1                PNG                     "res\\LVRes\\white_dice_1.png"
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_CURSOR1             CURSOR                  "res\\cursor1.cur"
+
 #endif    // Korean (Korea) resources
 /////////////////////////////////////////////////////////////////////////////
 

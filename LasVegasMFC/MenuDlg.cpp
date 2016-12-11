@@ -42,6 +42,7 @@ BEGIN_MESSAGE_MAP(CMenuDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON5, &CMenuDlg::OnBnClickedButton5)
 	ON_BN_CLICKED(ID_START, &CMenuDlg::OnBnClickedStart)
 	ON_BN_CLICKED(ID_CONTINUE, &CMenuDlg::OnBnClickedContinue)
+	ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
 
 
@@ -249,4 +250,16 @@ void CMenuDlg::OnBnClickedContinue()
 {
 	// TODO: Add your control notification handler code here
 	CDialog::OnOK();
+}
+
+
+BOOL CMenuDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
+{
+	// TODO: Add your message handler code here and/or call default
+	if (nHitTest == HTCLIENT) {
+		::SetCursor(AfxGetApp()->LoadCursor(IDC_CURSOR1));
+	}
+	return TRUE;
+
+	//return CDialog::OnSetCursor(pWnd, nHitTest, message);
 }

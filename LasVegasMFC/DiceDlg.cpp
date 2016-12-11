@@ -54,6 +54,7 @@ BEGIN_MESSAGE_MAP(CDiceDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON6, &CDiceDlg::OnBnClickedButton6)
 	ON_BN_CLICKED(IDC_BUTTON7, &CDiceDlg::OnBnClickedButton7)
 	ON_WM_PAINT()
+	ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
 
 
@@ -1874,6 +1875,15 @@ void CDiceDlg::OnPaint()
 		m_pic8.GetWindowDC()->StretchBlt(0, 0, rect.Width(), rect.Height(), &memDC, 0, 0, bmpinfo.bmWidth, bmpinfo.bmHeight, SRCCOPY);
 	}
 }
-	
 
 
+BOOL CDiceDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
+{
+	// TODO: Add your message handler code here and/or call default
+	if (nHitTest == HTCLIENT) {
+		::SetCursor(AfxGetApp()->LoadCursor(IDC_CURSOR1));
+	}
+	return TRUE;
+
+	//return CDialog::OnSetCursor(pWnd, nHitTest, message);
+}

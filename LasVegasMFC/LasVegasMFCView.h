@@ -65,6 +65,7 @@ public:
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 	void DrawBlueText();
 	afx_msg void OnViewMenu();
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 };
 
 #ifndef _DEBUG  // debug version in LasVegasMFCView.cpp

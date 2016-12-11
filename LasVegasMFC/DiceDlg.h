@@ -103,4 +103,5 @@ public:
 	CButton m_b5;
 	CButton m_b6;
 	CButton m_br;
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 };

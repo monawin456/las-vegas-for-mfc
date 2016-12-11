@@ -26,4 +26,5 @@ public:
 	CString m_str3;
 	CString m_str4;
 	CString m_str5;
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 };

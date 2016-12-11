@@ -36,4 +36,5 @@ public:
 	CButton m_save;
 	CButton m_continue;
 	afx_msg void OnBnClickedContinue();
+	afx_msg BOOL OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message);
 };

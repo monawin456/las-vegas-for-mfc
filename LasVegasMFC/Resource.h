@@ -72,6 +72,7 @@
 #define IDD_MENU                        371
 #define IDD_PNAMEDLG                    373
 #define IDD_RESULT                      375
+#define IDC_CURSOR1                     377
 #define IDC_STR                         1000
 #define IDC_BUTTON1                     1001
 #define IDC_BUTTON2                     1002
@@ -110,7 +111,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        377
+#define _APS_NEXT_RESOURCE_VALUE        378
 #define _APS_NEXT_COMMAND_VALUE         32776
 #define _APS_NEXT_CONTROL_VALUE         1026
 #define _APS_NEXT_SYMED_VALUE           310

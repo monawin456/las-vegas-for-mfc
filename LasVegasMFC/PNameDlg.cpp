@@ -43,7 +43,20 @@ void CPNameDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(CPNameDlg, CDialog)
+	ON_WM_SETCURSOR()
 END_MESSAGE_MAP()
 
 
 // CPNameDlg 메시지 처리기입니다.
+
+
+BOOL CPNameDlg::OnSetCursor(CWnd* pWnd, UINT nHitTest, UINT message)
+{
+	// TODO: Add your message handler code here and/or call default
+	if (nHitTest == HTCLIENT) {
+		::SetCursor(AfxGetApp()->LoadCursor(IDC_CURSOR1));
+	}
+	return TRUE;
+
+	//return CDialog::OnSetCursor(pWnd, nHitTest, message);
+}
