@@ -32,6 +32,7 @@ public:
 	BillDeck *billDeck;
 
 	int round;
+	int mainRound;
 
 	BOOL continueCheck;
 	BOOL saveCheck;
