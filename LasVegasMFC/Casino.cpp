@@ -143,14 +143,14 @@ CString Casino::getCasinoInfo1()
 CString Casino::getCasinoInfo2()
 {
 	CString str;
-	str.Format(_T("%s : %d      %s : %d      %s : %d"), pDoc->player3->name, player3DiceNum, pDoc->player4->name, player4DiceNum, pDoc->player5->name, player5DiceNum);
+	str.Format(_T("%s : %d     %s : %d     %s : %d"), pDoc->player3->name, player3DiceNum, pDoc->player4->name, player4DiceNum, pDoc->player5->name, player5DiceNum);
 	return str;
 }
 
 CString Casino::getCasinoInfo3()
 {
 	CString str;
-	str.Format(_T("%d$"), totalPrice);
+	str.Format(_T("%d $"), totalPrice);
 	return str;
 }
 

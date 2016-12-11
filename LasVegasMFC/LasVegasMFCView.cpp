@@ -428,29 +428,29 @@ void CLasVegasMFCView::OnDraw(CDC* pDC)
 
 	pDC->SetBkMode(TRANSPARENT);
 
-	pDC->TextOut(pCasino[0].x + 100, pCasino[0].y + 30, pDoc->casino1->getCasinoInfo1());
-	pDC->TextOut(pCasino[0].x + 40, pCasino[0].y + 60, pDoc->casino1->getCasinoInfo2());
-	pDC->TextOut(pCasino[0].x + 100, pCasino[0].y + 90, pDoc->casino1->getCasinoInfo3());
+	pDC->TextOut(pCasino[0].x + 85, pCasino[0].y + 30, pDoc->casino1->getCasinoInfo1());
+	pDC->TextOut(pCasino[0].x + 15, pCasino[0].y + 60, pDoc->casino1->getCasinoInfo2());
+	pDC->TextOut(pCasino[0].x + 240, pCasino[0].y + 90, pDoc->casino1->getCasinoInfo3());
 
-	pDC->TextOut(pCasino[1].x + 100, pCasino[1].y + 30, pDoc->casino2->getCasinoInfo1());
-	pDC->TextOut(pCasino[1].x + 40, pCasino[1].y + 60, pDoc->casino2->getCasinoInfo2());
-	pDC->TextOut(pCasino[1].x + 100, pCasino[1].y + 90, pDoc->casino2->getCasinoInfo3());
+	pDC->TextOut(pCasino[1].x + 85, pCasino[1].y + 30, pDoc->casino2->getCasinoInfo1());
+	pDC->TextOut(pCasino[1].x + 15, pCasino[1].y + 60, pDoc->casino2->getCasinoInfo2());
+	pDC->TextOut(pCasino[1].x + 240, pCasino[1].y + 90, pDoc->casino2->getCasinoInfo3());
 
-	pDC->TextOut(pCasino[2].x + 100, pCasino[2].y + 30, pDoc->casino3->getCasinoInfo1());
-	pDC->TextOut(pCasino[2].x + 40, pCasino[2].y + 60, pDoc->casino3->getCasinoInfo2());
-	pDC->TextOut(pCasino[2].x + 100, pCasino[2].y + 90, pDoc->casino3->getCasinoInfo3());
+	pDC->TextOut(pCasino[2].x + 85, pCasino[2].y + 30, pDoc->casino3->getCasinoInfo1());
+	pDC->TextOut(pCasino[2].x + 15, pCasino[2].y + 60, pDoc->casino3->getCasinoInfo2());
+	pDC->TextOut(pCasino[2].x + 240, pCasino[2].y + 90, pDoc->casino3->getCasinoInfo3());
 
-	pDC->TextOut(pCasino[3].x + 100, pCasino[3].y + 30, pDoc->casino4->getCasinoInfo1());
-	pDC->TextOut(pCasino[3].x + 40, pCasino[3].y + 60, pDoc->casino4->getCasinoInfo2());
-	pDC->TextOut(pCasino[3].x + 100, pCasino[3].y + 90, pDoc->casino4->getCasinoInfo3());
+	pDC->TextOut(pCasino[3].x + 85, pCasino[3].y + 30, pDoc->casino4->getCasinoInfo1());
+	pDC->TextOut(pCasino[3].x + 15, pCasino[3].y + 60, pDoc->casino4->getCasinoInfo2());
+	pDC->TextOut(pCasino[3].x + 240, pCasino[3].y + 90, pDoc->casino4->getCasinoInfo3());
 
-	pDC->TextOut(pCasino[4].x + 100, pCasino[4].y + 30, pDoc->casino5->getCasinoInfo1());
-	pDC->TextOut(pCasino[4].x + 40, pCasino[4].y + 60, pDoc->casino5->getCasinoInfo2());
-	pDC->TextOut(pCasino[4].x + 100, pCasino[4].y + 90, pDoc->casino5->getCasinoInfo3());
+	pDC->TextOut(pCasino[4].x + 85, pCasino[4].y + 30, pDoc->casino5->getCasinoInfo1());
+	pDC->TextOut(pCasino[4].x + 15, pCasino[4].y + 60, pDoc->casino5->getCasinoInfo2());
+	pDC->TextOut(pCasino[4].x + 240, pCasino[4].y + 90, pDoc->casino5->getCasinoInfo3());
 
-	pDC->TextOut(pCasino[5].x + 100, pCasino[5].y + 30, pDoc->casino6->getCasinoInfo1());
-	pDC->TextOut(pCasino[5].x + 40, pCasino[5].y + 60, pDoc->casino6->getCasinoInfo2());
-	pDC->TextOut(pCasino[5].x + 100, pCasino[5].y + 90, pDoc->casino6->getCasinoInfo3());
+	pDC->TextOut(pCasino[5].x + 85, pCasino[5].y + 30, pDoc->casino6->getCasinoInfo1());
+	pDC->TextOut(pCasino[5].x + 15, pCasino[5].y + 60, pDoc->casino6->getCasinoInfo2());
+	pDC->TextOut(pCasino[5].x + 240, pCasino[5].y + 90, pDoc->casino6->getCasinoInfo3());
 
 	pDC->SelectStockObject(BLACK_PEN);
 
