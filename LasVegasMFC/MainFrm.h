@@ -28,10 +28,10 @@ public:
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
-
+	CStatusBar        m_wndStatusBar;
 protected:  // control bar embedded members
 	CToolBar          m_wndToolBar;
-	CStatusBar        m_wndStatusBar;
+	
 
 // Generated message map functions
 protected:

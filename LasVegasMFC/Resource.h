@@ -7,6 +7,7 @@
 #define IDD_ABOUTBOX                    100
 #define IDP_OLE_INIT_FAILED             100
 #define IDD_LASVEGASMFC_FORM            101
+#define ID_INDICATOR_PLA                101
 #define IDR_MAINFRAME                   128
 #define IDR_LasVegasMFCTYPE             130
 #define IDD_DICEDLG                     310

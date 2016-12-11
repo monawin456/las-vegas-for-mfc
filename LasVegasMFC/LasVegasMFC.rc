@@ -541,6 +541,7 @@ END
 STRINGTABLE
 BEGIN
     IDP_OLE_INIT_FAILED     "OLE initialization failed.  Make sure that the OLE libraries are the correct version."
+    ID_INDICATOR_PLA        "Money 9999999 $, Num of Dice 9"
 END
 
 STRINGTABLE
